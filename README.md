@@ -19,5 +19,5 @@ brew install ansible
 cd ~
 git clone https://github.com/Leko/setup-osx.git setup-osx
 cd setup-osx
-ansible-playbook localhost.yml -vv --check -i hosts
+ansible-playbook localhost.yml -vv -i hosts
 ```
