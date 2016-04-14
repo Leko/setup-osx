@@ -1,0 +1,18 @@
+* text=auto
+
+*.c diff=cpp
+*.h diff=cpp
+*.cpp diff=cpp
+*.java diff=java
+*.html diff=html
+*.erb diff=html
+*.tpl diff=html
+*.php diff=php
+*.rb diff=ruby
+
+*.json diff=json
+
+*.jpg binary
+*.jpeg binary
+*.png binary
+*.gif binary
