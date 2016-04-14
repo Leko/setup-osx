@@ -167,6 +167,7 @@
       - { path: files/.gitconfig, dest: ~/.gitconfig }
       - { path: files/.gitattributes, dest: ~/.gitattributes }
       - { path: files/.git-prompt.sh, dest: ~/.git-prompt.sh }
+      - { path: files/.bundle, dest: ~/.bundle/config }
       - { path: files/completions/git.bash, dest: /usr/local/etc/bash_completion.d/git.bash }
     alfred_workflows:
       - 'https://raw.github.com/willfarrell/alfred-pkgman-workflow/master/Package%20Managers.alfredworkflow'
