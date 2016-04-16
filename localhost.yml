@@ -205,6 +205,10 @@
       with_items: '{{ symlinks }}'
 
     - name: XXX_DEBUG_XXX
+      command: ls {{ playbook_dir }}/files
+    - name: XXX_DEBUG_XXX
+      command: ls {{ playbook_dir }}/files/.bash_profile
+    - name: XXX_DEBUG_XXX
       command: source {{ playbook_dir }}/files/.bash_profile
 
     - name: Enable bash profile
