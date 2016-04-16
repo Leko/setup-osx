@@ -10,6 +10,7 @@
     - homebrew
     - anyenv
     - php
+    - go
 
   vars:
     homebrew_cask_packages:
@@ -46,8 +47,6 @@
       - { version: v0.12.13 }
       - { version: v4.4.3, global: true }
       - { version: v5.10.1 }
-    go_versions:
-      - { version: 1.6, global: true }
     ruby_versions:
       - { version: 1.9.3-p551 }
       - { version: 2.3.0, global: true }
@@ -58,9 +57,6 @@
       - { name: faker-cli, global: true }
       - { name: release-changelog, global: true }
       - { name: yeoman, global: true }
-    go_packages:
-      - github.com/motemen/ghq
-      - github.com/peco/peco/cmd/peco
     gem_packages:
       - bundler
       - sqlite3
@@ -78,10 +74,6 @@
       shell: source ~/.bashrc && ndenv install {{ item.version }}
       with_items: '{{ node_versions }}'
 
-    - name: Install go versions
-      shell: source ~/.bashrc && goenv install {{ item.version }}
-      with_items: '{{ go_versions }}'
-
     - name: Install ruby versions
       shell: source ~/.bashrc && rbenv install {{ item.version }}
       with_items: '{{ ruby_versions }}'
@@ -91,19 +83,10 @@
       with_items: '{{ node_versions }}'
       when: '{{ item.global | default(False) }}'
 
-    - name: Set go version to {{ item.version }}
-      shell: source ~/.bashrc && goenv install {{ item.version }}
-      with_items: '{{ go_versions }}'
-      when: '{{ item.global | default(False) }}'
-
     - name: Set ruby version to {{ item.version }}
       shell: source ~/.bashrc && rbenv install {{ item.version }}
       with_items: '{{ ruby_versions }}'
       when: '{{ item.global | default(False) }}'
-
-    - name: Install go packages
-      command: go get {{ item }}
-      with_items: '{{ go_packages }}'
 
     - name: Install gem packages
       gem: name={{ item }} state=latest
