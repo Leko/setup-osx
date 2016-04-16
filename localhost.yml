@@ -212,8 +212,11 @@
         repo: https://github.com/riywo/anyenv 
         dest: ~/.anyenv
 
-    # - name: Enable anyenv
-    #   command: . ~/.bashrc
+    - name: DEBUG
+      command: anyenv
+
+    - name: DEBUG
+      command: echo $PATH
 
     - name: Install anyenv languages
       command: anyenv install {{ item }}
