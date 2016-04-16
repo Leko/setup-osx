@@ -220,7 +220,7 @@
       with_items: '{{ anyenv_languages }}'
 
     - name: XXXXXXXXXXXXX
-      shell: ls ~/.anyenv/envs/{{ item }}
+      shell: ls -la ~/.anyenv/envs/{{ item }}/bin
       with_items: '{{ anyenv_languages }}'
 
     - name: Install php versions
