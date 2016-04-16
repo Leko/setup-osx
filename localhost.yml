@@ -193,6 +193,9 @@
       with_items: '{{ osx_defaults_settings }}'
       notify: killall
 
+    - name: Create .bundle
+      file: path=~/.bundle state=directory
+
     - name: Copy files
       copy: src={{ item.path }} dest={{ item.dest }}
       with_items: '{{ symlinks }}'
