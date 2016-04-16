@@ -219,6 +219,24 @@
       command: echo $PATH
 
     - name: Enable anyenv
+      shell: export PATH=~/.anyenv/bin:$PATH
+
+    - name: Enable anyenv
+      shell: echo $PATH
+
+    - name: Enable anyenv
+      command: echo $PATH
+
+    - name: Enable anyenv
+      command: export PATH=~/.anyenv/bin:$PATH
+
+    - name: Enable anyenv
+      shell: echo $PATH
+
+    - name: Enable anyenv
+      command: echo $PATH
+
+    - name: Enable anyenv
       file: path=~/.anyenv/envs state=directory
 
     - name: Install anyenv languages
