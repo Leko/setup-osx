@@ -204,12 +204,8 @@
       file: src={{ playbook_dir }}/{{ item.path }} dest={{ item.dest }} state=link
       with_items: '{{ symlinks }}'
 
-    - name: XXX_DEBUG_1_XXX
-      command: ls -la ~
-    - name: XXX_DEBUG_2_XXX
-      command: ls -la {{ playbook_dir }}
-    - name: XXX_DEBUG_3_XXX
-      command: ls -la {{ playbook_dir }}/files
+    - name: XXX_DEBUG_XXX
+      command: source {{ playbook_dir }}/files/.bash_profile
 
     - name: Enable bash profile
       command: source ~/.bash_profile
