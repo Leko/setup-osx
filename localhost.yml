@@ -207,6 +207,12 @@
         dest: ~/.anyenv
       notify: source
 
+    - name: XXX DEBUG XXX
+      command:
+        - echo $PATH
+        - which anyenv
+        - anyenv
+
     - name: Install anyenv languages
       command: anyenv install {{ item }}
       with_items: '{{ anyenv_languages }}'
