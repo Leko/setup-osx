@@ -210,48 +210,48 @@
         dest: ~/.anyenv
 
     - name: Enable anyenv
+      shell: source ~/.bashrc
+
+    - name: Enable anyenv
       file: path=~/.anyenv/envs state=directory
 
     - name: Install anyenv languages
       shell: ~/.anyenv/bin/anyenv install {{ item }} creates=~/.anyenv/envs/{{ item }}
       with_items: '{{ anyenv_languages }}'
 
-    # - name: Enable *env
-    #   shell: eval "$(anyenv init -)"
-
     - name: Install php versions
-      shell: eval "$(anyenv init -)" && phpenv install {{ item.version }}
+      shell: phpenv install {{ item.version }}
       with_items: '{{ php_versions }}'
 
     - name: Install node versions
-      shell: eval "$(anyenv init -)" && ndenv install {{ item.version }}
+      shell: ndenv install {{ item.version }}
       with_items: '{{ node_versions }}'
 
     - name: Install go versions
-      shell: eval "$(anyenv init -)" && goenv install {{ item.version }}
+      shell: goenv install {{ item.version }}
       with_items: '{{ go_versions }}'
 
     - name: Install ruby versions
-      shell: eval "$(anyenv init -)" && rbenv install {{ item.version }}
+      shell: rbenv install {{ item.version }}
       with_items: '{{ ruby_versions }}'
 
     - name: Set php version to {{ item.version }}
-      shell: eval "$(anyenv init -)" && phpenv install {{ item.version }}
+      shell: phpenv install {{ item.version }}
       with_items: '{{ php_versions }}'
       when: '{{ item.global | default(False) }}'
 
     - name: Set node version to {{ item.version }}
-      shell: eval "$(anyenv init -)" && ndenv install {{ item.version }}
+      shell: ndenv install {{ item.version }}
       with_items: '{{ node_versions }}'
       when: '{{ item.global | default(False) }}'
 
     - name: Set go version to {{ item.version }}
-      shell: eval "$(anyenv init -)" && goenv install {{ item.version }}
+      shell: goenv install {{ item.version }}
       with_items: '{{ go_versions }}'
       when: '{{ item.global | default(False) }}'
 
     - name: Set ruby version to {{ item.version }}
-      shell: eval "$(anyenv init -)" && rbenv install {{ item.version }}
+      shell: rbenv install {{ item.version }}
       with_items: '{{ ruby_versions }}'
       when: '{{ item.global | default(False) }}'
 
