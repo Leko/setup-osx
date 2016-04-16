@@ -1,8 +1,6 @@
-- name: Remove brew-cask
-  homebrew: name=brew-cask state=absent install_options=force
-
 - name: Update Homebrew cask
   shell: brew update && brew cleanup && brew cask cleanup --outdated
+  notify: brew doctor
 
 - name: Install Homebrew cask packages
   homebrew_cask: name={{ item.name }} state={{ item.state | default('present') }}

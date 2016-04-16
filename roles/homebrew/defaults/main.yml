@@ -33,6 +33,8 @@ homebrew_packages:
   - { name: bash-completion }
   - { name: httpie }
   - { name: argon/mas/mas }
+  # For Brew cask
+  - { name: brew-cask, state: absent, install_options: force }
   # For PHP
   - { name: bison, version: 2.7.1 }
   - { name: re2c }
