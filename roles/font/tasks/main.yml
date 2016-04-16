@@ -1,6 +1,6 @@
 - name: Install Ricty
   homebrew: name={{ item }} state=latest
-  with_item:
+  with_items:
     - fontforge
     - ricty
 
