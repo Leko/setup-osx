@@ -1,3 +1,6 @@
+homebrew_taps:
+  - caskroom/cask
+  - caskroom/versions
 homebrew_cask_packages:
   - { name: alfred }
   - { name: dash }
