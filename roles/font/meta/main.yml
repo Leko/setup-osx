@@ -1,4 +1,3 @@
 ---
 dependencies:
-  - { role: brewcask, homebrew_cask_packages: '{{ fonts }}' }
-  - { role: homebrew, homebrew_packages: '{{ packages }}' }
+  - { role: brewcask }

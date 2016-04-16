@@ -2,4 +2,4 @@
 dependencies:
   - { role: anyenv }
   - { role: dotfiles }
-  - { role: homebrew, homebrew_packages: '{{ homebrew_packages }}' }
+  - { role: homebrew }

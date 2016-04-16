@@ -33,3 +33,10 @@ homebrew_packages:
   - { name: coreutils }
   - { name: bash-completion }
   - { name: argon/mas/mas }
+  # For PHP
+  - { name: bison, version: 2.7.1 }
+  - { name: re2c }
+  - { name: libjpeg }
+  - { name: libpng }
+  - { name: libmcrypt }
+  - { name: autoconf }
