@@ -213,13 +213,11 @@
       file: path=~/.anyenv/envs state=directory
 
     - name: Install anyenv languages
-      command: ~/.anyenv/bin/anyenv install {{ item }}
+      shell: ~/.anyenv/bin/anyenv install {{ item }} creates=~/.anyenv/envs/{{ item }}
       with_items: '{{ anyenv_languages }}'
 
     - name: Enable *env
-      command: eval {{ item }}
-      with_items:
-        - '"$(~/.anyenv/bin/anyenv init -)"'
+      shell: eval "$(anyenv init -)"
 
     - name: Install php versions
       command: phpenv install {{ item.version }}
