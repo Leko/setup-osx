@@ -196,8 +196,8 @@
     - name: Create .bundle
       file: path=~/.bundle state=directory
 
-    - name: Copy files
-      copy: src={{ playbook_dir }}/{{ item.path }} dest={{ item.dest }}
+    - name: Link dot files
+      file: src={{ playbook_dir }}/{{ item.path }} dest={{ item.dest }} state=link
       with_items: '{{ symlinks }}'
 
     - name: Enable bash profile
