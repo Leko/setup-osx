@@ -7,5 +7,5 @@
   with_items: '{{ symlinks }}'
 
 - name: Link dot files
-  file: src={{ playbook_dir }}/{{ item.path }} dest={{ item.dest }} state=link
+  file: src={{ playbook_dir }}/roles/dotfiles/{{ item.path }} dest={{ item.dest }} state=link
   with_items: '{{ symlinks }}'
