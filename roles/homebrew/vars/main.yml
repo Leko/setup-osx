@@ -1,0 +1,33 @@
+homebrew_taps:
+  - homebrew/binary
+  - homebrew/versions
+  - homebrew/dupes
+  - caskroom/cask
+  - caskroom/versions
+homebrew_packages:
+  - { name: readline }
+  - { name: openssl }
+  - { name: openssl, state: linked, install_options: force }
+  - { name: bash }
+  - { name: git }
+  - { name: cowsay }
+  - { name: docker }
+  - { name: docker-machine }
+  - { name: doxygen }
+  - { name: apple-gcc42 }
+  - { name: gnu-sed }
+  - { name: graphviz }
+  - { name: jq }
+  - { name: mecab }
+  - { name: mecab-ipadic }
+  - { name: nkf }
+  - { name: nmap }
+  - { name: packer }
+  - { name: sqlite }
+  - { name: tree }
+  - { name: unrar }
+  - { name: vim }
+  - { name: wget }
+  - { name: coreutils }
+  - { name: bash-completion }
+  - { name: argon/mas/mas }

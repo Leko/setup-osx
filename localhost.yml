@@ -7,42 +7,11 @@
     - osx
     - dotfiles
     - downloads
+    - homebrew
 
   vars:
-    homebrew_taps:
-      - homebrew/binary
-      - homebrew/versions
-      - homebrew/dupes
-      - caskroom/cask
-      - caskroom/versions
+    # For PHP
     homebrew_packages:
-      - { name: readline }
-      - { name: openssl }
-      - { name: openssl, state: linked, install_options: force }
-      - { name: bash }
-      - { name: git }
-      - { name: cowsay }
-      - { name: docker }
-      - { name: docker-machine }
-      - { name: doxygen }
-      - { name: apple-gcc42 }
-      - { name: gnu-sed }
-      - { name: graphviz }
-      - { name: jq }
-      - { name: mecab }
-      - { name: mecab-ipadic }
-      - { name: nkf }
-      - { name: nmap }
-      - { name: packer }
-      - { name: sqlite }
-      - { name: tree }
-      - { name: unrar }
-      - { name: vim }
-      - { name: wget }
-      - { name: coreutils }
-      - { name: bash-completion }
-      - { name: argon/mas/mas }
-      # For PHP
       - { name: bison, version: 2.7.1 }
       - { name: re2c }
       - { name: libjpeg }
@@ -116,27 +85,6 @@
       register: newer_yosemite
       ignore_errors: true
 
-    - name: Homebrew taps
-      homebrew_tap: tap={{ item }} state=present
-      with_items: '{{ homebrew_taps }}'
-
-    - name: Update Homebrew
-      homebrew: update_homebrew=yes
-
-    - name: Install Homebrew packages
-      homebrew: >
-        name={{ item.name }}
-        state={{ item.state | default('latest') }}
-        install_options={{
-          item.install_options | default() | join(',')
-          if item.install_options is not string
-          else item.install_options
-        }}
-      with_items: '{{ homebrew_packages }}'
-      # argon/mas/mas support Yosemite+ only
-      when: '{{ item.name != "argon/mas/mas" or newer_yosemite.rc == 0 }}'
-      notify: brew doctor
-
     - name: Install Homebrew cask
       homebrew: name=brew-cask state=latest
 
@@ -151,6 +99,20 @@
     - name: Install anyenv languages
       shell: source ~/.bashrc && ~/.anyenv/bin/anyenv install {{ item }} && exec $SHELL -l creates=~/.anyenv/envs/{{ item }}
       with_items: '{{ anyenv_languages }}'
+
+    - name: Install Homebrew packages
+      homebrew: >
+        name={{ item.name }}
+        state={{ item.state | default('latest') }}
+        install_options={{
+          item.install_options | default() | join(',')
+          if item.install_options is not string
+          else item.install_options
+        }}
+      with_items: '{{ homebrew_packages }}'
+      # argon/mas/mas support Yosemite+ only
+      when: '{{ item.name != "argon/mas/mas" or newer_yosemite.rc == 0 }}'
+      notify: brew doctor
 
     - name: Install php versions
       shell: source ~/.bashrc && phpenv install {{ item.version }}
@@ -211,7 +173,5 @@
       notify: brew cask doctor
 
   handlers:
-    - name: brew doctor
-      command: brew doctor
     - name: brew cask doctor
       command: brew cask doctor
