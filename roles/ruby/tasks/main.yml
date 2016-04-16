@@ -3,7 +3,7 @@
   with_items: '{{ ruby_versions }}'
 
 - name: Set ruby version to {{ item.version }}
-  shell: source ~/.bashrc && rbenv install {{ item.version }}
+  shell: source ~/.bashrc && rbenv global {{ item.version }}
   with_items: '{{ ruby_versions }}'
   when: '{{ item.global | default(False) }}'
 

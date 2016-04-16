@@ -3,7 +3,7 @@
   with_items: '{{ go_versions }}'
 
 - name: Set go version to {{ item.version }}
-  shell: source ~/.bashrc && goenv install {{ item.version }}
+  shell: source ~/.bashrc && goenv global {{ item.version }}
   with_items: '{{ go_versions }}'
   when: '{{ item.global | default(False) }}'
 

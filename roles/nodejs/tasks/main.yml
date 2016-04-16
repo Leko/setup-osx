@@ -3,7 +3,7 @@
   with_items: '{{ node_versions }}'
 
 - name: Set node version to {{ item.version }}
-  shell: source ~/.bashrc && ndenv install {{ item.version }}
+  shell: source ~/.bashrc && ndenv global {{ item.version }}
   with_items: '{{ node_versions }}'
   when: '{{ item.global | default(False) }}'
 
