@@ -1,0 +1,30 @@
+homebrew_cask_packages:
+  - { name: alfred }
+  - { name: dash }
+  - { name: flash-player }
+  - { name: quicklook-csv }
+  - { name: quicklook-json }
+  - { name: heroku-toolbelt }
+  - { name: adobe-creative-cloud }
+  - { name: appcleaner }
+  - { name: cyberduck }
+  - { name: evernote }
+  - { name: firefox }
+  - { name: google-chrome }
+  - { name: google-japanese-ime }
+  - { name: iterm2 }
+  - { name: karabiner }
+  - { name: mysqlworkbench }
+  - { name: sequel-pro }
+  - { name: sublime-text }
+  - { name: vagrant }
+  - { name: virtualbox }
+  - { name: xmind }
+  - { name: spectacle }
+  - { name: skype }
+  - { name: recordit }
+  - { name: coteditor }
+  # Fonts
+  # https://github.com/caskroom/homebrew-fonts/tree/master/Casks
+  - { name: font-source-code-pro }
+  - { name: font-source-han-code-jp }
