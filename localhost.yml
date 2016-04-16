@@ -196,6 +196,10 @@
     - name: Create .bundle
       file: path=~/.bundle state=directory
 
+    - name: Remove exists file
+      file: dest={{ item.dest }} state=absent
+      with_items: '{{ symlinks }}'
+
     - name: Link dot files
       file: src={{ playbook_dir }}/{{ item.path }} dest={{ item.dest }} state=link
       with_items: '{{ symlinks }}'
