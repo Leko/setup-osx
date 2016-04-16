@@ -44,6 +44,8 @@ export HISTTIMEFORMAT='%Y%m%d %T'
 # Development > Homebrew
 #########################
 HOMEBREW_CASK_APP_DIR=/Applications
+export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 export HOMEBREW_CASK_OPTS=--appdir=$HOMEBREW_CASK_APP_DIR
 export HOMEBREW_MAKE_JOBS=4
 
@@ -62,8 +64,6 @@ eval "$(anyenv init -)"
 #########################
 # Programming > Bash
 #########################
-export PATH=/usr/local/sbin:/usr/local/bin:$PATH
-export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 export LS_COLORS="no=00:fi=00:di=32:ln=36"
 
 # Require Bash 4.0+
