@@ -212,8 +212,8 @@
         repo: https://github.com/riywo/anyenv 
         dest: ~/.anyenv
 
-    # - name: Enable anyenv
-    #   command: ~/.anyenv/bin/anyenv
+    - name: Enable anyenv
+      command: ls ~/.anyenv
     # - name: Enable anyenv
     #   command: 'eval "$(~/.anyenv/bin/anyenv init -)"'
 
