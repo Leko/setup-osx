@@ -1,0 +1,7 @@
+ruby_versions:
+  - { version: 1.9.3-p551 }
+  - { version: 2.3.0, global: true }
+
+gem_packages:
+  - bundler
+  - sqlite3

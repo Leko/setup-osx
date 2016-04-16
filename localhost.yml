@@ -11,6 +11,7 @@
     - anyenv
     - php
     - go
+    - ruby
 
   vars:
     homebrew_cask_packages:
@@ -47,9 +48,6 @@
       - { version: v0.12.13 }
       - { version: v4.4.3, global: true }
       - { version: v5.10.1 }
-    ruby_versions:
-      - { version: 1.9.3-p551 }
-      - { version: 2.3.0, global: true }
     npm_packages:
       - { name: babel-cli, global: true }
       - { name: bower, global: true }
@@ -57,9 +55,6 @@
       - { name: faker-cli, global: true }
       - { name: release-changelog, global: true }
       - { name: yeoman, global: true }
-    gem_packages:
-      - bundler
-      - sqlite3
 
   tasks:
     - name: Get os version
@@ -74,23 +69,10 @@
       shell: source ~/.bashrc && ndenv install {{ item.version }}
       with_items: '{{ node_versions }}'
 
-    - name: Install ruby versions
-      shell: source ~/.bashrc && rbenv install {{ item.version }}
-      with_items: '{{ ruby_versions }}'
-
     - name: Set node version to {{ item.version }}
       shell: source ~/.bashrc && ndenv install {{ item.version }}
       with_items: '{{ node_versions }}'
       when: '{{ item.global | default(False) }}'
-
-    - name: Set ruby version to {{ item.version }}
-      shell: source ~/.bashrc && rbenv install {{ item.version }}
-      with_items: '{{ ruby_versions }}'
-      when: '{{ item.global | default(False) }}'
-
-    - name: Install gem packages
-      gem: name={{ item }} state=latest
-      with_items: '{{ gem_packages }}'
 
     - name: Install npm packages
       npm: >
