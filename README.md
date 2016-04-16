@@ -1,6 +1,8 @@
 # setup-osx
 Set up my OSX for development
 
+[![Build Status](https://travis-ci.org/Leko/setup-osx.svg?branch=master)](https://travis-ci.org/Leko/setup-osx)
+
 ## Getting started
 ```sh
 # Install XCode Command Line Tool 
