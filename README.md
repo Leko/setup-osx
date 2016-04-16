@@ -22,4 +22,8 @@ cd ~
 git clone https://github.com/Leko/setup-osx.git setup-osx
 cd setup-osx
 ansible-playbook localhost.yml -vv -i hosts
+
+# Update 
+cd ~/setup-osx
+ansible-playbook localhost.yml -vv -i hosts
 ```
