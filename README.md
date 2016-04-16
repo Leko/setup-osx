@@ -63,11 +63,3 @@ ndenv          # help
 ndenv version  # display current Nodejs version
 ndenv versions # list installed Nodejs versions
 ```
-
-### Java (jenv)
-
-```sh
-jenv          # help
-jenv version  # display current Java version
-jenv versions # list installed Java versions
-```
