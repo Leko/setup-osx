@@ -1,5 +1,5 @@
 - name: Remove brew-cask
-  homebrew: name=brew-cask state=absent
+  homebrew: name=brew-cask state=absent install_options=force
 
 - name: Update Homebrew cask
   shell: brew update && brew cleanup && brew cask cleanup --outdated
