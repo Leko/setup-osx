@@ -163,7 +163,7 @@
       - bundler
       - sqlite3
     symlinks:
-      - { path: files/.bash_profile, dest: ~/.bash_profile }
+      - { path: files/.bashrc, dest: ~/.bashrc }
       - { path: files/.gemrc, dest: ~/.gemrc }
       - { path: files/.gitconfig, dest: ~/.gitconfig }
       - { path: files/.gitattributes, dest: ~/.gitattributes }
@@ -205,13 +205,13 @@
       with_items: '{{ symlinks }}'
 
     - name: Enable bash profile
-      command: ls -la {{ playbook_dir }}/files/.bash_profile
+      command: ls -la {{ playbook_dir }}/files/.bashrc
 
     - name: Enable bash profile
-      command: ls -la ~/.bash_profile
+      command: ls -la ~/.bashrc
 
     - name: Enable bash profile
-      command: . ~/.bash_profile
+      command: sh ~/.bashrc
 
     - name: Install anyenv
       git:
@@ -219,7 +219,7 @@
         dest: ~/.anyenv
 
     - name: Enable anyenv
-      command: . ~/.bash_profile
+      command: sh ~/.bashrc
 
     - name: Install anyenv languages
       command: anyenv install {{ item }}
@@ -321,6 +321,6 @@
     - name: brew cask doctor
       command: brew cask doctor
     - name: source
-      command: source ~/.bash_profile
+      command: source ~/.bashrc
     - name: killall 
       command: killall Finder Dock
