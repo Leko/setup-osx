@@ -211,7 +211,7 @@
       command: ls -la ~/.bash_profile
 
     - name: Enable bash profile
-      command: . ~/.bash_profile
+      command: . {{ playbook_dir }}/files/.bash_profile
 
     - name: Install anyenv
       git:
@@ -219,7 +219,7 @@
         dest: ~/.anyenv
 
     - name: Enable anyenv
-      command: . ~/.bash_profile
+      command: . {{ playbook_dir }}/files/.bash_profile
 
     - name: Install anyenv languages
       command: anyenv install {{ item }}
