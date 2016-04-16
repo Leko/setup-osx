@@ -53,13 +53,6 @@ export HOMEBREW_CASK_OPTS=--appdir=$HOMEBREW_CASK_APP_DIR
 alias subl="$HOMEBREW_CASK_APP_DIR/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 
 #########################
-# Development > Git
-#########################
-if [ -f ~/.git-prompt.sh ]; then
-    . ~/.git-prompt.sh
-fi
-
-#########################
 # Programming > Any env
 #########################
 export PATH="$HOME/.anyenv/bin:$PATH"
@@ -68,11 +61,6 @@ eval "$(anyenv init -)"
 #########################
 # Programming > Bash
 #########################
-# Bash completion
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-  . $(brew --prefix)/etc/bash_completion
-fi
-
 export PATH=/usr/local/sbin:/usr/local/bin:$PATH
 export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 export LS_COLORS="no=00:fi=00:di=32:ln=36"
