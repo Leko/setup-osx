@@ -1,7 +1,9 @@
 os: osx
 
+before_install:
+  - brew update
+
 install:
-  - xcode-select --install
   - brew install python
   - brew install ansible
 
