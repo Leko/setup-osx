@@ -67,7 +67,7 @@ export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 export LS_COLORS="no=00:fi=00:di=32:ln=36"
 
 # Require Bash 4.0+
-peco-src() {
+peco_src() {
     local selected
     selected="$(ghq list --full-path | peco --query="$READLINE_LINE")"
     if [ -n "$selected" ]; then
@@ -76,14 +76,14 @@ peco-src() {
     fi
 }
 # http://qiita.com/comutt/items/f54e755f22508a6c7d78
-peco-select-history() {
+peco_select_history() {
     declare l=$(HISTTIMEFORMAT= history | sort -k1,1nr | perl -ne 'BEGIN { my @lines = (); } s/^\s*\d+\s*//; $in=$_; if (!(grep {$in eq $_} @lines)) { push(@lines, $in); print $in; }' | peco --query "$READLINE_LINE")
     READLINE_LINE="$l"
     READLINE_POINT=${#l}
 }
 
-bind -x '"\C-]": peco-src'
-bind -x '"\C-r": peco-select-history'
+bind -x '"\C-]": peco_src'
+bind -x '"\C-r": peco_select_history'
 
 #########################
 # Programming > Go
