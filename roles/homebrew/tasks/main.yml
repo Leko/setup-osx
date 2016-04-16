@@ -21,7 +21,7 @@
     }}
   with_items: '{{ homebrew_packages }}'
   # argon/mas/mas support Yosemite+ only
-  when: '{{ ( item.name != "argon/mas/mas" and item.name != "ppl011") or newer_yosemite.rc == 0 }}'
+  when: '{{ !(item.name in ["argon/mas/mas", "appledoc21", "ppl011"]) or newer_yosemite.rc == 0 }}'
   notify: brew doctor
 
 - name: DEBUGDEBUG

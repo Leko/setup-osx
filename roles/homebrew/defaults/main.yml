@@ -31,6 +31,7 @@ homebrew_packages:
   - { name: wget }
   - { name: coreutils }
   - { name: bash-completion }
+  - { name: httpie }
   - { name: argon/mas/mas }
   # For PHP
   - { name: bison, version: 2.7.1 }
