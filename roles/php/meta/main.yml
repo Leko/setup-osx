@@ -2,3 +2,4 @@
 dependencies:
   - { role: anyenv }
   - { role: homebrew }
+  - { role: dotfiles }
