@@ -12,8 +12,10 @@
 	s = status --short --branch
 	f = fetch --all --prune
 	l = log --decorate --oneline --graph
+	ls = log --decorate --oneline --graph --stat --find-renames
 	gi = grep -n -i
 	mnff = merge --no-ff
+	ignore = "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi"
 [core]
 	attributesfile = ~/.gitattributes
 [ui]
@@ -27,3 +29,5 @@
 [diff]
 	algorithm = histogram
 	renames = true
+[grep]
+	lineNumber = true
