@@ -8,6 +8,7 @@
     - dotfiles
     - downloads
     - homebrew
+    - anyenv
 
   vars:
     # For PHP
@@ -48,11 +49,6 @@
       # https://github.com/caskroom/homebrew-fonts/tree/master/Casks
       - { name: font-source-code-pro }
       - { name: font-source-han-code-jp }
-    anyenv_languages:
-      - rbenv
-      - phpenv
-      - goenv
-      - ndenv
     php_versions:
       - { version: 5.6.20, global: true }
       - { version: 5.1.2 }
@@ -87,18 +83,6 @@
 
     - name: Install Homebrew cask
       homebrew: name=brew-cask state=latest
-
-    - name: Install anyenv
-      git:
-        repo: https://github.com/riywo/anyenv 
-        dest: ~/.anyenv
-
-    - name: Enable anyenv
-      file: path=~/.anyenv/envs state=directory
-
-    - name: Install anyenv languages
-      shell: source ~/.bashrc && ~/.anyenv/bin/anyenv install {{ item }} && exec $SHELL -l creates=~/.anyenv/envs/{{ item }}
-      with_items: '{{ anyenv_languages }}'
 
     - name: Install Homebrew packages
       homebrew: >
