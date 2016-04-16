@@ -1,4 +1,13 @@
+taps:
+  - caskroom/fonts
+packages:
+  - { name: fontforge }
+  - { name: ricty }
 fonts:
+  # For Ricty
+  # http://www.task-notes.com/entry/20150124/1422091466
+  - { name: xquartz }
+
   # https://github.com/caskroom/homebrew-fonts/tree/master/Casks
   - { name: font-source-code-pro }
   - { name: font-source-han-code-jp }
@@ -6,3 +15,4 @@ fonts:
   - { name: font-roboto }
   - { name: font-rounded-m-plus }
   - { name: font-ionicons }
+  - { name: ricty }

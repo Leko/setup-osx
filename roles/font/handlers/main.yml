@@ -1,2 +1,2 @@
-- name: brew cask doctor
-  command: brew cask doctor
+- name: run fc-cache
+  shell: fc-cache -vf

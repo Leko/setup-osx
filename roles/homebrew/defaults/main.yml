@@ -4,7 +4,6 @@ homebrew_taps:
   - homebrew/dupes
   - caskroom/cask
   - caskroom/versions
-  - caskroom/fonts
 homebrew_packages:
   - { name: readline }
   - { name: openssl }
