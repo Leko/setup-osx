@@ -216,11 +216,11 @@
       file: path=~/.anyenv/envs state=directory
 
     - name: Install anyenv languages
-      shell: ~/.anyenv/bin/anyenv install {{ item }} && exec $SHELL -l creates=~/.anyenv/envs/{{ item }}
+      shell: anyenv install {{ item }} && exec $SHELL -l creates=~/.anyenv/envs/{{ item }}
       with_items: '{{ anyenv_languages }}'
 
     - name: XXXXXXXXXXXXX
-      shell: eval "$(anyenv init -)" && echo $PATH && {{ item }}
+      shell: PATH=~/.anyenv/bin:$PATH && eval "$(anyenv init -)" && echo $PATH && {{ item }}
       with_items: '{{ anyenv_languages }}'
 
     - name: Install php versions
