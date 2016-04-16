@@ -21,5 +21,8 @@
     }}
   with_items: '{{ homebrew_packages }}'
   # argon/mas/mas support Yosemite+ only
-  when: '{{ item.name != "argon/mas/mas" or newer_yosemite.rc == 0 }}'
+  when: '{{ ( item.name != "argon/mas/mas" and item.name != "ppl011") or newer_yosemite.rc == 0 }}'
   notify: brew doctor
+
+- name: DEBUGDEBUG
+  shell: ls /usr/local/Cellar/openssl
