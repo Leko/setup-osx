@@ -1,0 +1,11 @@
+node_versions:
+  - { version: v0.12.13 }
+  - { version: v4.4.3, global: true }
+  - { version: v5.10.1 }
+npm_packages:
+  - { name: babel-cli, global: true }
+  - { name: bower, global: true }
+  - { name: daff, global: true }
+  - { name: faker-cli, global: true }
+  - { name: release-changelog, global: true }
+  - { name: yeoman, global: true }
