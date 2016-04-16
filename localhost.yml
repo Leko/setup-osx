@@ -207,12 +207,8 @@
         dest: ~/.anyenv
       notify: source
 
-    - name: XXX_DEBUG_1_XXX
-      command: echo $PATH
-    - name: XXX_DEBUG_2_XXX
-      command: which anyenv
-    - name: XXX_DEBUG_3_XXX
-      command: anyenv
+    - name: Enable anyenv
+      command: source ~/.bash_profile
 
     - name: Install anyenv languages
       command: anyenv install {{ item }}
