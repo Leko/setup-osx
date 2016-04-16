@@ -220,7 +220,7 @@
       with_items: '{{ anyenv_languages }}'
 
     - name: XXXXXXXXXXXXX
-      shell: ls -la ~/.anyenv/envs/{{ item }}/bin
+      shell: eval "$(anyenv init -)" && {{ item }}
       with_items: '{{ anyenv_languages }}'
 
     - name: Install php versions
