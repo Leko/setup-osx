@@ -163,11 +163,11 @@
       - bundler
       - sqlite3
     symlinks:
-      - { mode: 0755, path: files/.bash_profile, dest: ~/.bash_profile }
-      - { mode: 0644, path: files/.gemrc, dest: ~/.gemrc }
-      - { mode: 0644, path: files/.gitconfig, dest: ~/.gitconfig }
-      - { mode: 0644, path: files/.gitattributes, dest: ~/.gitattributes }
-      - { mode: 0644, path: files/.bundle, dest: ~/.bundle/config }
+      - { path: files/.bash_profile, dest: ~/.bash_profile }
+      - { path: files/.gemrc, dest: ~/.gemrc }
+      - { path: files/.gitconfig, dest: ~/.gitconfig }
+      - { path: files/.gitattributes, dest: ~/.gitattributes }
+      - { path: files/.bundle, dest: ~/.bundle/config }
     alfred_workflows:
       - 'https://raw.github.com/willfarrell/alfred-pkgman-workflow/master/Package%20Managers.alfredworkflow'
       - 'https://raw.github.com/willfarrell/alfred-caniuse-workflow/master/caniuse.alfredworkflow'
@@ -201,7 +201,7 @@
       with_items: '{{ symlinks }}'
 
     - name: Link dot files
-      file: src={{ playbook_dir }}/{{ item.path }} dest={{ item.dest }} mode={{ item.mode }} state=link
+      file: src={{ playbook_dir }}/{{ item.path }} dest={{ item.dest }} state=link
       with_items: '{{ symlinks }}'
 
     - name: Enable bash profile
