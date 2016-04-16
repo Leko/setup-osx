@@ -205,6 +205,12 @@
       with_items: '{{ symlinks }}'
 
     - name: Enable bash profile
+      command: ls -la {{ playbook_dir }}/files/.bash_profile
+
+    - name: Enable bash profile
+      command: ls -la ~/.bash_profile
+
+    - name: Enable bash profile
       command: . ~/.bash_profile
 
     - name: Install anyenv
