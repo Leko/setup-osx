@@ -197,15 +197,16 @@
       file: path=~/.bundle state=directory
 
     - name: Copy files
-      copy: src={{ item.path }} dest={{ item.dest }}
+      copy: src={{ playbook_dir }}/{{ item.path }} dest={{ item.dest }}
       with_items: '{{ symlinks }}'
-      notify: source
+
+    - name: Enable bash profile
+      command: source ~/.bash_profile
 
     - name: Install anyenv
       git:
         repo: https://github.com/riywo/anyenv 
         dest: ~/.anyenv
-      notify: source
 
     - name: Enable anyenv
       command: source ~/.bash_profile
