@@ -2,3 +2,7 @@ fonts:
   # https://github.com/caskroom/homebrew-fonts/tree/master/Casks
   - { name: font-source-code-pro }
   - { name: font-source-han-code-jp }
+  - { name: font-source-han-sans }
+  - { name: font-roboto }
+  - { name: font-rounded-m-plus }
+  - { name: font-ionicons }
