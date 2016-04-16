@@ -45,19 +45,13 @@ export HISTTIMEFORMAT='%Y%m%d %T'
 #########################
 HOMEBREW_CASK_APP_DIR=/Applications
 export HOMEBREW_CASK_OPTS=--appdir=$HOMEBREW_CASK_APP_DIR
+export HOMEBREW_MAKE_JOBS=4
 
 #########################
 # Development > Editor
 #########################
 # brew-cask経由で入れないとアプリ名が変わるので変わるのでエラーが出る、その場合パスを直す
 alias subl="$HOMEBREW_CASK_APP_DIR/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
-
-#########################
-# Development > Git
-#########################
-if [ -f ~/.git-prompt.sh ]; then
-    . ~/.git-prompt.sh
-fi
 
 #########################
 # Programming > Any env
@@ -68,17 +62,12 @@ eval "$(anyenv init -)"
 #########################
 # Programming > Bash
 #########################
-# Bash completion
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-  . $(brew --prefix)/etc/bash_completion
-fi
-
 export PATH=/usr/local/sbin:/usr/local/bin:$PATH
 export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 export LS_COLORS="no=00:fi=00:di=32:ln=36"
 
 # Require Bash 4.0+
-peco-src() {
+peco_src() {
     local selected
     selected="$(ghq list --full-path | peco --query="$READLINE_LINE")"
     if [ -n "$selected" ]; then
@@ -87,14 +76,14 @@ peco-src() {
     fi
 }
 # http://qiita.com/comutt/items/f54e755f22508a6c7d78
-peco-select-history() {
+peco_select_history() {
     declare l=$(HISTTIMEFORMAT= history | sort -k1,1nr | perl -ne 'BEGIN { my @lines = (); } s/^\s*\d+\s*//; $in=$_; if (!(grep {$in eq $_} @lines)) { push(@lines, $in); print $in; }' | peco --query "$READLINE_LINE")
     READLINE_LINE="$l"
     READLINE_POINT=${#l}
 }
 
-bind -x '"\C-]": peco-src'
-bind -x '"\C-r": peco-select-history'
+bind -x '"\C-]": peco_src'
+bind -x '"\C-r": peco_select_history'
 
 #########################
 # Programming > Go

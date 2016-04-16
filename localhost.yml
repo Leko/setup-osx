@@ -36,6 +36,13 @@
       - { name: coreutils }
       - { name: bash-completion }
       - { name: argon/mas/mas }
+      # For PHP
+      - { name: bison, version: 2.7.1 }
+      - { name: re2c }
+      - { name: libjpeg }
+      - { name: libpng }
+      - { name: libmcrypt }
+      - { name: autoconf }
     homebrew_cask_packages:
       - { name: alfred }
       - { name: dash }
@@ -138,17 +145,17 @@
         type: bool
         value: true
     php_versions:
-      - { version: 7 }
-      - { version: 5.6, global: true }
-      - { version: 5.1.2 }
+      - { version: 5.6.20, global: true }
+      - { version: 7.0.5 }
     node_versions:
-      - { version: 1.12 }
-      - { version: 4.4, global: true }
-      - { version: 5.10 }
+      - { version: v0.12.13 }
+      - { version: v4.4.3, global: true }
+      - { version: v5.10.1 }
     go_versions:
       - { version: 1.6, global: true }
     ruby_versions:
-      - { version: 2.3, global: true }
+      - { version: 1.9.3-p551 }
+      - { version: 2.3.0, global: true }
     npm_packages:
       - { name: babel-cli, global: true }
       - { name: bower, global: true }
@@ -163,7 +170,7 @@
       - bundler
       - sqlite3
     symlinks:
-      - { path: files/.bash_profile, dest: ~/.bash_profile }
+      - { path: files/.bashrc, dest: ~/.bashrc }
       - { path: files/.gemrc, dest: ~/.gemrc }
       - { path: files/.gitconfig, dest: ~/.gitconfig }
       - { path: files/.gitattributes, dest: ~/.gitattributes }
@@ -184,6 +191,11 @@
         dest: ~/Downloads
 
   tasks:
+    - name: Get os version
+      shell: 'sw_vers | grep "10.[0-9]\{2\}"'
+      register: newer_yosemite
+      ignore_errors: true
+
     - name: Override OSX default settings
       osx_defaults: >
         key={{ item.key }}
@@ -193,71 +205,16 @@
       with_items: '{{ osx_defaults_settings }}'
       notify: killall
 
-    - name: Copy files
-      copy: src={{ item.path }} dest={{ item.dest }} state=link
+    - name: Create .bundle
+      file: path=~/.bundle state=directory
+
+    - name: Remove exists file
+      file: dest={{ item.dest }} state=absent
       with_items: '{{ symlinks }}'
-      notify: source
 
-    - name: Install anyenv
-      git:
-        repo: https://github.com/riywo/anyenv 
-        dest: ~/.anyenv
-
-    - name: Install anyenv languages
-      command: anyenv install {{ item }}
-      with_items: '{{ anyenv_languages }}'
-
-    - name: Install php versions
-      command: phpenv install {{ item.version }}
-      with_items: '{{ php_versions }}'
-
-    - name: Install node versions
-      command: ndenv install {{ item.version }}
-      with_items: '{{ node_versions }}'
-
-    - name: Install go versions
-      command: goenv install {{ item.version }}
-      with_items: '{{ go_versions }}'
-
-    - name: Install ruby versions
-      command: rbenv install {{ item.version }}
-      with_items: '{{ ruby_versions }}'
-
-    - name: Set php version to {{ item.version }}
-      command: phpenv install {{ item.version }}
-      with_items: '{{ php_versions }}'
-      when: '{{ item.global | default(False) }}'
-
-    - name: Set node version to {{ item.version }}
-      command: ndenv install {{ item.version }}
-      with_items: '{{ node_versions }}'
-      when: '{{ item.global | default(False) }}'
-
-    - name: Set go version to {{ item.version }}
-      command: goenv install {{ item.version }}
-      with_items: '{{ go_versions }}'
-      when: '{{ item.global | default(False) }}'
-
-    - name: Set ruby version to {{ item.version }}
-      command: rbenv install {{ item.version }}
-      with_items: '{{ ruby_versions }}'
-      when: '{{ item.global | default(False) }}'
-
-    - name: Install go packages
-      command: go get {{ item }}
-      with_items: '{{ go_packages }}'
-
-    - name: Install gem packages
-      gem: name={{ item }} state=latest
-      with_items: '{{ gem_packages }}'
-
-    - name: Install npm packages
-      npm: >
-        name={{ item.name }}
-        production=yes
-        global={{ item.global | default(False) }}
-        state={{ item.state | default('latest') }}
-      with_items: '{{ npm_packages }}'
+    - name: Link dot files
+      file: src={{ playbook_dir }}/{{ item.path }} dest={{ item.dest }} state=link
+      with_items: '{{ symlinks }}'
 
     - name: Homebrew taps
       homebrew_tap: tap={{ item }} state=present
@@ -276,10 +233,76 @@
           else item.install_options
         }}
       with_items: '{{ homebrew_packages }}'
+      # argon/mas/mas support Yosemite+ only
+      when: '{{ item.name != "argon/mas/mas" or newer_yosemite.rc == 0 }}'
       notify: brew doctor
 
     - name: Install Homebrew cask
       homebrew: name=brew-cask state=latest
+
+    - name: Install anyenv
+      git:
+        repo: https://github.com/riywo/anyenv 
+        dest: ~/.anyenv
+
+    - name: Enable anyenv
+      file: path=~/.anyenv/envs state=directory
+
+    - name: Install anyenv languages
+      shell: source ~/.bashrc && ~/.anyenv/bin/anyenv install {{ item }} && exec $SHELL -l creates=~/.anyenv/envs/{{ item }}
+      with_items: '{{ anyenv_languages }}'
+
+    - name: Install php versions
+      shell: source ~/.bashrc && phpenv install {{ item.version }}
+      with_items: '{{ php_versions }}'
+
+    - name: Install node versions
+      shell: source ~/.bashrc && ndenv install {{ item.version }}
+      with_items: '{{ node_versions }}'
+
+    - name: Install go versions
+      shell: source ~/.bashrc && goenv install {{ item.version }}
+      with_items: '{{ go_versions }}'
+
+    - name: Install ruby versions
+      shell: source ~/.bashrc && rbenv install {{ item.version }}
+      with_items: '{{ ruby_versions }}'
+
+    - name: Set php version to {{ item.version }}
+      shell: source ~/.bashrc && phpenv global {{ item.version }}
+      with_items: '{{ php_versions }}'
+      when: '{{ item.global | default(False) }}'
+
+    - name: Set node version to {{ item.version }}
+      shell: source ~/.bashrc && ndenv global {{ item.version }}
+      with_items: '{{ node_versions }}'
+      when: '{{ item.global | default(False) }}'
+
+    - name: Set go version to {{ item.version }}
+      shell: source ~/.bashrc && goenv global {{ item.version }}
+      with_items: '{{ go_versions }}'
+      when: '{{ item.global | default(False) }}'
+
+    - name: Set ruby version to {{ item.version }}
+      shell: source ~/.bashrc && rbenv global {{ item.version }}
+      with_items: '{{ ruby_versions }}'
+      when: '{{ item.global | default(False) }}'
+
+    - name: Install go packages
+      command: go get {{ item }}
+      with_items: '{{ go_packages }}'
+
+    - name: Install gem packages
+      gem: name={{ item }} state=latest
+      with_items: '{{ gem_packages }}'
+
+    - name: Install npm packages
+      npm: >
+        name={{ item.name }}
+        production=yes
+        global={{ item.global | default(False) }}
+        state={{ item.state | default('latest') }}
+      with_items: '{{ npm_packages }}'
 
     - name: Install Homebrew cask packages
       homebrew_cask: name={{ item.name }} state={{ item.state|default('installed') }}
@@ -303,6 +326,6 @@
     - name: brew cask doctor
       command: brew cask doctor
     - name: source
-      command: source ~/.bash_profile
+      command: source ~/.bashrc
     - name: killall 
       command: killall Finder Dock
