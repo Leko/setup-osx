@@ -31,3 +31,5 @@
 	renames = true
 [grep]
 	lineNumber = true
+	threads = 16
+	fallbackToNoIndex = true
