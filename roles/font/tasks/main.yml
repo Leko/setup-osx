@@ -1,5 +1,0 @@
-# TODO: include brewcask homebrew_cask_packages={{ fonts }}
-- name: Install Homebrew cask packages
-  homebrew_cask: name={{ item.name }} state={{ item.state|default('installed') }}
-  with_items: '{{ fonts }}'
-  notify: brew cask doctor
