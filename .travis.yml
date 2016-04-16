@@ -9,3 +9,8 @@ install:
 
 script:
   - ansible-playbook localhost.yml --check -vv -i hosts
+
+after_script:
+  - git --version
+  - brew doctor
+  - brew cask doctor
