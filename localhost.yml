@@ -219,6 +219,10 @@
       shell: ~/.anyenv/bin/anyenv install {{ item }} && exec $SHELL -l creates=~/.anyenv/envs/{{ item }}
       with_items: '{{ anyenv_languages }}'
 
+    - name: XXXXXXXXXXXXX
+      shell: ls ~/.anyenv/envs/{{ item }}
+      with_items: '{{ anyenv_languages }}'
+
     - name: Install php versions
       shell: ~/.anyenv/envs/phpenv/bin/phpenv install {{ item.version }}
       with_items: '{{ php_versions }}'
