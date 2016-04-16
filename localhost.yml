@@ -212,13 +212,13 @@
         repo: https://github.com/riywo/anyenv 
         dest: ~/.anyenv
 
-    - name: Enable anyenv
-      command: ~/.anyenv/bin/anyenv
-    - name: Enable anyenv
-      command: 'eval "$(~/.anyenv/bin/anyenv init -)"'
+    # - name: Enable anyenv
+    #   command: ~/.anyenv/bin/anyenv
+    # - name: Enable anyenv
+    #   command: 'eval "$(~/.anyenv/bin/anyenv init -)"'
 
     - name: Install anyenv languages
-      command: anyenv install {{ item }}
+      command: ~/.anyenv/bin/anyenv install {{ item }}
       with_items: '{{ anyenv_languages }}'
 
     - name: Install php versions
