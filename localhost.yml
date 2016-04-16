@@ -211,6 +211,28 @@
       file: src={{ playbook_dir }}/{{ item.path }} dest={{ item.dest }} state=link
       with_items: '{{ symlinks }}'
 
+    - name: Homebrew taps
+      homebrew_tap: tap={{ item }} state=present
+      with_items: '{{ homebrew_taps }}'
+
+    - name: Update Homebrew
+      homebrew: update_homebrew=yes
+
+    - name: Install Homebrew packages
+      homebrew: >
+        name={{ item.name }}
+        state={{ item.state | default('latest') }}
+        install_options={{
+          item.install_options | default() | join(',')
+          if item.install_options is not string
+          else item.install_options
+        }}
+      with_items: '{{ homebrew_packages }}'
+      notify: brew doctor
+
+    - name: Install Homebrew cask
+      homebrew: name=brew-cask state=latest
+
     - name: Install anyenv
       git:
         repo: https://github.com/riywo/anyenv 
@@ -274,28 +296,6 @@
         global={{ item.global | default(False) }}
         state={{ item.state | default('latest') }}
       with_items: '{{ npm_packages }}'
-
-    - name: Homebrew taps
-      homebrew_tap: tap={{ item }} state=present
-      with_items: '{{ homebrew_taps }}'
-
-    - name: Update Homebrew
-      homebrew: update_homebrew=yes
-
-    - name: Install Homebrew packages
-      homebrew: >
-        name={{ item.name }}
-        state={{ item.state | default('latest') }}
-        install_options={{
-          item.install_options | default() | join(',')
-          if item.install_options is not string
-          else item.install_options
-        }}
-      with_items: '{{ homebrew_packages }}'
-      notify: brew doctor
-
-    - name: Install Homebrew cask
-      homebrew: name=brew-cask state=latest
 
     - name: Install Homebrew cask packages
       homebrew_cask: name={{ item.name }} state={{ item.state|default('installed') }}
