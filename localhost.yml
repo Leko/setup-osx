@@ -195,6 +195,11 @@
         dest: ~/Downloads
 
   tasks:
+    - name: Get os version
+      shell: "sw_vers | grep '10.[0-9]\{2\}'"
+      register: newer_yosemite
+      ignroe_errors: true
+
     - name: Override OSX default settings
       osx_defaults: >
         key={{ item.key }}
@@ -232,6 +237,8 @@
           else item.install_options
         }}
       with_items: '{{ homebrew_packages }}'
+      # argon/mas/mas support Yosemite+ only
+      when: '{{ item.name != "argon/mas/mas" or newer_yosemite.rc == 0 }}'
       notify: brew doctor
 
     - name: Install Homebrew cask
