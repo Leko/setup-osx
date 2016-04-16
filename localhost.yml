@@ -194,7 +194,7 @@
       notify: killall
 
     - name: Copy files
-      copy: src={{ item.path }} dest={{ item.dest }} state=link
+      copy: src={{ item.path }} dest={{ item.dest }}
       with_items: '{{ symlinks }}'
       notify: source
 
