@@ -216,7 +216,7 @@
       file: path=~/.anyenv/envs state=directory
 
     - name: Install anyenv languages
-      shell: ~/.anyenv/bin/anyenv install {{ item }} creates=~/.anyenv/envs/{{ item }}
+      shell: ~/.anyenv/bin/anyenv install {{ item }} && exec $SHELL -l creates=~/.anyenv/envs/{{ item }}
       with_items: '{{ anyenv_languages }}'
 
     - name: Install php versions
