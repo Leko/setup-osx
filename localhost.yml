@@ -212,11 +212,12 @@
         repo: https://github.com/riywo/anyenv 
         dest: ~/.anyenv
 
-    - name: DEBUG
+    - name: Enable anyenv
+      command: 'export PATH="$HOME/.anyenv/bin:$PATH"'
+    - name: Enable anyenv
+      command: 'eval "$(anyenv init -)"'
+    - name: Enable anyenv
       command: anyenv
-
-    - name: DEBUG
-      command: echo $PATH
 
     - name: Install anyenv languages
       command: anyenv install {{ item }}
