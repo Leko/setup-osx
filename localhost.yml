@@ -125,8 +125,8 @@
       # Dockのサイズを50px?に
       - domain: com.apple.dock
         key: tilesize
-        type: int
-        value: 50
+        type: float
+        value: 50.0
       # 起動中のアプリのみDockに表示
       - domain: com.apple.dock
         key: static-only
