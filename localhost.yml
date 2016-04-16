@@ -254,7 +254,6 @@
 
     - name: Install php versions
       shell: source ~/.bashrc && phpenv install {{ item.version }}
-      timeout: 1800
       with_items: '{{ php_versions }}'
 
     - name: Install node versions
