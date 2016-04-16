@@ -205,6 +205,7 @@
       git:
         repo: https://github.com/riywo/anyenv 
         dest: ~/.anyenv
+      notify: source
 
     - name: Install anyenv languages
       command: anyenv install {{ item }}
