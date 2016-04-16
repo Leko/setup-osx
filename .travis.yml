@@ -8,7 +8,7 @@ install:
   - brew install ansible
 
 script:
-  - ansible-playbook localhost.yml --check -vv -i hosts
+  - ansible-playbook localhost.yml -vv -i hosts
 
 after_script:
   - git --version
