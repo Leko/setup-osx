@@ -63,3 +63,20 @@ ndenv          # help
 ndenv version  # display current Nodejs version
 ndenv versions # list installed Nodejs versions
 ```
+
+## Other
+
+### Brew components
+```sh
+brew list
+```
+
+### Applications
+```sh
+brew cask list | grep -v font # without fonts
+```
+
+### Fonts
+```sh
+brew cask list | grep font
+```
