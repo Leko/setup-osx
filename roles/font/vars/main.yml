@@ -1,5 +1,3 @@
-taps:
-  - caskroom/fonts
 packages:
   - { name: fontforge }
   - { name: ricty }
