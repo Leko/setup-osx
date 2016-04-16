@@ -14,6 +14,7 @@
       - { name: openssl }
       - { name: openssl, state: linked, install_options: force }
       - { name: bash }
+      - { name: git }
       - { name: cowsay }
       - { name: docker }
       - { name: docker-machine }
@@ -166,9 +167,7 @@
       - { path: files/.gemrc, dest: ~/.gemrc }
       - { path: files/.gitconfig, dest: ~/.gitconfig }
       - { path: files/.gitattributes, dest: ~/.gitattributes }
-      - { path: files/.git-prompt.sh, dest: ~/.git-prompt.sh }
       - { path: files/.bundle, dest: ~/.bundle/config }
-      - { path: files/completions/git.bash, dest: /usr/local/etc/bash_completion.d/git.bash }
     alfred_workflows:
       - 'https://raw.github.com/willfarrell/alfred-pkgman-workflow/master/Package%20Managers.alfredworkflow'
       - 'https://raw.github.com/willfarrell/alfred-caniuse-workflow/master/caniuse.alfredworkflow'
@@ -194,7 +193,7 @@
       with_items: '{{ osx_defaults_settings }}'
       notify: killall
 
-    - name: Copy Symbolic link
+    - name: Copy files
       copy: src={{ item.path }} dest={{ item.dest }} state=link
       with_items: '{{ symlinks }}'
       notify: source
