@@ -220,7 +220,7 @@
       with_items: '{{ anyenv_languages }}'
 
     - name: XXXXXXXXXXXXX
-      shell: eval "$(anyenv init -)" && {{ item }}
+      shell: eval "$(anyenv init -)" && echo $PATH && {{ item }}
       with_items: '{{ anyenv_languages }}'
 
     - name: Install php versions
