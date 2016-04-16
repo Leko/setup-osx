@@ -4,7 +4,6 @@ before_install:
   - brew update
 
 install:
-  - brew install python
   - brew install ansible
 
 script:

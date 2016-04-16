@@ -10,12 +10,9 @@ xcode-select --install
 
 # Install Homebrew
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew install ansible
 brew doctor
 brew update
-
-# Install packages to execute Ansible
-brew install python
-brew install ansible
 
 # Clone 
 cd ~
