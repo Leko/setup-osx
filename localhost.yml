@@ -213,6 +213,12 @@
       shell: source ~/.bashrc
 
     - name: Enable anyenv
+      shell: echo $PATH
+
+    - name: Enable anyenv
+      command: echo $PATH
+
+    - name: Enable anyenv
       file: path=~/.anyenv/envs state=directory
 
     - name: Install anyenv languages
