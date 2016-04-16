@@ -39,3 +39,7 @@ homebrew_packages:
   - { name: libpng }
   - { name: libmcrypt }
   - { name: autoconf }
+  # You have unlinked kegs in your Cellar...
+  - { name: ppl011, state: linked }
+  # You may wish to `brew unlink` these brews:
+  - { name: appledoc22, state: unlinked }
