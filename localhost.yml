@@ -213,11 +213,9 @@
         dest: ~/.anyenv
 
     - name: Enable anyenv
-      command: 'export PATH="$HOME/.anyenv/bin:$PATH"'
+      command: ~/.anyenv/bin/anyenv
     - name: Enable anyenv
-      command: 'eval "$(anyenv init -)"'
-    - name: Enable anyenv
-      command: anyenv
+      command: 'eval "$(~/.anyenv/bin/anyenv init -)"'
 
     - name: Install anyenv languages
       command: anyenv install {{ item }}
