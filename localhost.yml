@@ -216,6 +216,9 @@
       command: ~/.anyenv/bin/anyenv install {{ item }}
       with_items: '{{ anyenv_languages }}'
 
+    - name: Enable *env
+      command: eval "$(~/.anyenv/bin/anyenv init -)"
+
     - name: Install php versions
       command: phpenv install {{ item.version }}
       with_items: '{{ php_versions }}'
