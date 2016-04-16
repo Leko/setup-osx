@@ -5,6 +5,7 @@
 
   roles:
     - osx
+    - dotfiles
     - downloads
 
   vars:
@@ -108,29 +109,12 @@
     gem_packages:
       - bundler
       - sqlite3
-    symlinks:
-      - { path: files/.bashrc, dest: ~/.bashrc }
-      - { path: files/.gemrc, dest: ~/.gemrc }
-      - { path: files/.gitconfig, dest: ~/.gitconfig }
-      - { path: files/.gitattributes, dest: ~/.gitattributes }
-      - { path: files/.bundle, dest: ~/.bundle/config }
 
   tasks:
     - name: Get os version
       shell: 'sw_vers | grep "10.[0-9]\{2\}"'
       register: newer_yosemite
       ignore_errors: true
-
-    - name: Create .bundle
-      file: path=~/.bundle state=directory
-
-    - name: Remove exists file
-      file: dest={{ item.dest }} state=absent
-      with_items: '{{ symlinks }}'
-
-    - name: Link dot files
-      file: src={{ playbook_dir }}/{{ item.path }} dest={{ item.dest }} state=link
-      with_items: '{{ symlinks }}'
 
     - name: Homebrew taps
       homebrew_tap: tap={{ item }} state=present
@@ -231,5 +215,3 @@
       command: brew doctor
     - name: brew cask doctor
       command: brew cask doctor
-    - name: source
-      command: source ~/.bashrc
