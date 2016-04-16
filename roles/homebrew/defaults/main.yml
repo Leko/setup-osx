@@ -8,7 +8,6 @@ homebrew_taps:
   - sanemat/font
 homebrew_packages:
   - { name: readline }
-  - { name: openssl }
   - { name: openssl, state: linked, install_options: force }
   - { name: bash }
   - { name: git }

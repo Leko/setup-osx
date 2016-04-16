@@ -3,14 +3,14 @@
   gather_facts: no           
   become: no
   roles:
-    - osx
-    - dotfiles
-    - downloads
-    - homebrew
-    - brewcask
-    - font
-    - anyenv
+    # - osx
+    # - dotfiles
+    # - downloads
+    # - homebrew
+    # - brewcask
+    # - font
+    # - anyenv
     - php
-    - go
-    - ruby
-    - nodejs
+    # - go
+    # - ruby
+    # - nodejs
