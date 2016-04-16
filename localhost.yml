@@ -5,6 +5,7 @@
 
   roles:
     - osx
+    - downloads
 
   vars:
     homebrew_taps:
@@ -113,20 +114,6 @@
       - { path: files/.gitconfig, dest: ~/.gitconfig }
       - { path: files/.gitattributes, dest: ~/.gitattributes }
       - { path: files/.bundle, dest: ~/.bundle/config }
-    alfred_workflows:
-      - 'https://raw.github.com/willfarrell/alfred-pkgman-workflow/master/Package%20Managers.alfredworkflow'
-      - 'https://raw.github.com/willfarrell/alfred-caniuse-workflow/master/caniuse.alfredworkflow'
-      - 'https://github.com/packal/repository/raw/master/com.cnsworder.vbox/vbox.alfredworkflow'
-      - 'https://github.com/packal/repository/raw/master/tylereich.colors/colors_v2.0.1.alfredworkflow'
-      - 'https://github.com/packal/repository/raw/master/mn.frd.alfred-dongers/dongers.alfredworkflow'
-      - 'https://github.com/packal/repository/raw/master/dk.rodalgaard.alfred.network/network.alfredworkflow'
-      - 'https://dl.dropboxusercontent.com/u/48987130/alfred_workflows/hatebu_for_alfred.alfredworkflow'
-      - 'https://dl.dropboxusercontent.com/u/48987130/alfred_workflows/Markdown%20Link%20Generator.alfredworkflow'
-      - 'https://github.com/packal/repository/raw/master/net.deanishe.alfred-stackoverflow/stackoverflow-1.2.alfredworkflow'
-      - 'https://github.com/packal/repository/raw/master/com.ravelll.wifi/wi-fi.alfredworkflow'
-    downloads:
-      - url: 'http://ethanschoonover.com/solarized/files/solarized.zip'
-        dest: ~/Downloads
 
   tasks:
     - name: Get os version
@@ -238,14 +225,6 @@
       homebrew_cask: name={{ item.name }} state={{ item.state|default('installed') }}
       with_items: '{{ homebrew_cask_packages }}'
       notify: brew cask doctor
-
-    - name: Download Alfred workflows
-      get_url: url={{ item }} dest=~/Downloads/alfred
-      with_items: '{{ alfred_workflows }}'
-
-    - name: Download files
-      get_url: url={{ item.url }} dest={{ item.dest }}
-      with_items: '{{ downloads }}'
 
   handlers:
     - name: brew doctor

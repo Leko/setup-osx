@@ -1,0 +1,7 @@
+- name: Download Alfred workflows
+  get_url: url={{ item }} dest=~/Downloads/alfred
+  with_items: '{{ alfred_workflows }}'
+
+- name: Download files
+  get_url: url={{ item.url }} dest={{ item.dest }}
+  with_items: '{{ downloads }}'
