@@ -209,6 +209,8 @@
     - name: XXX_DEBUG_XXX
       command: ls {{ playbook_dir }}/files/.bash_profile
     - name: XXX_DEBUG_XXX
+      command: . {{ playbook_dir }}/files/.bash_profile
+    - name: XXX_DEBUG_XXX
       command: source {{ playbook_dir }}/files/.bash_profile
 
     - name: Enable bash profile
