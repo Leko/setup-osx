@@ -216,7 +216,7 @@
       file: path=~/.anyenv/envs state=directory
 
     - name: Install anyenv languages
-      shell: anyenv install {{ item }} && exec $SHELL -l creates=~/.anyenv/envs/{{ item }}
+      shell: PATH=~/.anyenv/bin:$PATH anyenv install {{ item }} && exec $SHELL -l creates=~/.anyenv/envs/{{ item }}
       with_items: '{{ anyenv_languages }}'
 
     - name: XXXXXXXXXXXXX
