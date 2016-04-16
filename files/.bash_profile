@@ -45,6 +45,7 @@ export HISTTIMEFORMAT='%Y%m%d %T'
 #########################
 HOMEBREW_CASK_APP_DIR=/Applications
 export HOMEBREW_CASK_OPTS=--appdir=$HOMEBREW_CASK_APP_DIR
+export HOMEBREW_MAKE_JOBS=4
 
 #########################
 # Development > Editor
