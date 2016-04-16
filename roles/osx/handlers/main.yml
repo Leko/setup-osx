@@ -1,0 +1,2 @@
+- name: killall 
+  command: killall Finder Dock
