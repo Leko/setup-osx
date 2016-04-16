@@ -217,7 +217,9 @@
       with_items: '{{ anyenv_languages }}'
 
     - name: Enable *env
-      command: 'eval "$(~/.anyenv/bin/anyenv init -)"'
+      command: eval {{ item }}
+      with_items:
+        - '"$(~/.anyenv/bin/anyenv init -)"'
 
     - name: Install php versions
       command: phpenv install {{ item.version }}
