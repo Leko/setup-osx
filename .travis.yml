@@ -1,0 +1,16 @@
+os: osx
+
+before_install:
+  - brew update
+
+install:
+  - brew install python
+  - brew install ansible
+
+script:
+  - ansible-playbook localhost.yml --check -vv -i hosts
+
+after_script:
+  - git --version
+  - brew doctor
+  - brew cask doctor
