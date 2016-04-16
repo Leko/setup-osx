@@ -204,18 +204,13 @@
       file: src={{ playbook_dir }}/{{ item.path }} dest={{ item.dest }} state=link
       with_items: '{{ symlinks }}'
 
-    # - name: Enable bash profile
-    #   command: . ~/.bashrc
-
     - name: Install anyenv
       git:
         repo: https://github.com/riywo/anyenv 
         dest: ~/.anyenv
 
     - name: Enable anyenv
-      command: ls ~/.anyenv
-    # - name: Enable anyenv
-    #   command: 'eval "$(~/.anyenv/bin/anyenv init -)"'
+      file: path=~/.anyenv/envs state=directory
 
     - name: Install anyenv languages
       command: ~/.anyenv/bin/anyenv install {{ item }}
