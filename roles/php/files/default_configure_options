@@ -1,15 +1,15 @@
 --without-pear
 --with-gd
 --enable-sockets
---with-jpeg-dir=$(brew --prefix libjpeg)
---with-png-dir=$(brew --prefix libpng)
+--with-jpeg-dir=/usr/local/opt/libjpeg
+--with-png-dir=/usr/local/opt/libpng
 --enable-exif
 --enable-zip
 --with-zlib
---with-zlib-dir=$(brew --prefix zlib)
+--with-zlib-dir=/usr/local/opt/zlib
 --with-kerberos
---with-openssl=$(brew --prefix openssl)
---with-mcrypt=$(brew --prefix libjpeg)
+--with-openssl=/usr/local/opt/openssl
+--with-mcrypt=/usr/local/opt/libjpeg
 --enable-soap
 --enable-xmlreader
 --with-xsl
