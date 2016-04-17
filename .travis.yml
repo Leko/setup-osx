@@ -16,3 +16,6 @@ install:
 
 script:
   - travis_wait 60 ansible-playbook ci.yml -vv -i hosts
+
+after_script:
+  - cat /tmp/php-build*
