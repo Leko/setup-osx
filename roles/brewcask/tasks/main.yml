@@ -1,8 +1,10 @@
 - name: Update Homebrew cask
   shell: brew update && brew cleanup && brew cask cleanup --outdated
-  notify: brew doctor
 
 - name: Install Homebrew cask packages
   homebrew_cask: name={{ item.name }} state={{ item.state | default('present') }}
   with_items: '{{ homebrew_cask_packages }}'
-  notify: brew cask doctor
+  notify:
+    - brew doctor
+    - brew cask doctor
+    - brew cask cleanup

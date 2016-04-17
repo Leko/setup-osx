@@ -1,2 +1,4 @@
 - name: brew doctor
   command: brew doctor
+- name: brew cleanup
+  shell: brew cleanup
