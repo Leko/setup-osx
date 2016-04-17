@@ -1,5 +1,13 @@
+- name: Override php-build default settings
+  template: >
+    src={{ playbook_dir }}/roles/php/files/default_configure_options
+    dest=~/.anyenv/envs/phpenv/plugins/php-build/share/php-build/default_configure_options
+    force=yes
+    mode=0644
+  with_items: '{{ php_versions }}'
+
 - name: Install php versions
-  shell: source ~/.bashrc && PHP_BUILD_CONFIGURE_OPTS='--with-openssl=/usr/local/Cellar/openssl/1.0.2g' phpenv install {{ item.version }}
+  shell: source ~/.bashrc && phpenv install {{ item.version }}
   with_items: '{{ php_versions }}'
 
 - name: Set php version to {{ item.version }}

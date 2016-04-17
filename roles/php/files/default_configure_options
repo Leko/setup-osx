@@ -1,0 +1,33 @@
+--without-pear
+--with-gd
+--enable-sockets
+--with-jpeg-dir=$(brew --prefix libjpeg)
+--with-png-dir=$(brew --prefix libpng)
+--enable-exif
+--enable-zip
+--with-zlib
+--with-zlib-dir=$(brew --prefix zlib)
+--with-kerberos
+--with-openssl=$(brew --prefix openssl)
+--with-mcrypt=$(brew --prefix libjpeg)
+--enable-soap
+--enable-xmlreader
+--with-xsl
+--enable-ftp
+--enable-cgi
+--with-curl=/usr
+--with-tidy
+--with-xmlrpc
+--enable-sysvsem
+--enable-sysvshm
+--enable-shmop
+--with-mysql=mysqlnd
+--with-mysqli=mysqlnd
+--with-pdo-mysql=mysqlnd
+--with-pdo-sqlite
+--enable-pcntl
+--with-readline
+--enable-mbstring
+--disable-debug
+--enable-fpm
+--enable-bcmath
