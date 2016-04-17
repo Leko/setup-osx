@@ -8,7 +8,7 @@
 --with-zlib
 --with-zlib-dir=/usr/local/opt/zlib
 --with-kerberos
---with-openssl=/usr/local/opt/openssl
+--with-openssl=/usr/local
 --with-mcrypt=/usr/local/opt/libjpeg
 --enable-soap
 --enable-xmlreader
