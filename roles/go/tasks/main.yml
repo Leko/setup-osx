@@ -8,5 +8,5 @@
   when: '{{ item.global | default(False) }}'
 
 - name: Install go packages
-  command: go get {{ item }}
+  shell: source ~/.bashrc && go get {{ item }}
   with_items: '{{ go_packages }}'
