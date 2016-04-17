@@ -9,12 +9,13 @@ matrix:
 
 before_install:
   - brew update
+  - sed 's/- brewcask/# - brewcask/' localhost.yml > localhost.tmp.yml
 
 install:
   - brew install ansible
 
 script:
-  - travis_wait 60 ansible-playbook localhost.yml -vv -i hosts
+  - travis_wait 60 ansible-playbook localhost.tmp.yml -vv -i hosts
 
 after_script:
   - git --version
