@@ -39,6 +39,7 @@ homebrew_packages:
   # For PHP
   - { name: bison27 }
   - { name: bison27, state: linked, install_options: force }
+  - { name: pcre }
   - { name: zlib }
   - { name: re2c }
   - { name: libjpeg }
