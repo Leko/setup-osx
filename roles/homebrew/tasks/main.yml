@@ -25,10 +25,4 @@
   notify: brew cleanup
 
 - name: XXX_DEBUG_XXX
-  shell: echo $PATH
-- name: XXX_DEBUG_XXX
-  shell: $(brew --prefix openssl)/bin/openssl version
-- name: XXX_DEBUG_XXX
-  shell: openssl version
-- name: XXX_DEBUG_XXX
-  shell: which openssl
+  shell: bison -V

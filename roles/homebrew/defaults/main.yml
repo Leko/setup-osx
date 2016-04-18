@@ -38,6 +38,7 @@ homebrew_packages:
   - { name: brew-cask, state: absent, install_options: force }
   # For PHP
   - { name: bison27 }
+  - { name: bison27, state: linked, install_options: force }
   - { name: zlib }
   - { name: re2c }
   - { name: libjpeg }
