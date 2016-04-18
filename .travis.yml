@@ -13,7 +13,7 @@ before_install:
 
 install:
   - xcode-select -p
-  - xcode-select --switch /Library/Developer/CommandLineTools/
+  - sudo xcode-select --switch /Library/Developer/CommandLineTools/
   - brew install ansible
 
 script:
