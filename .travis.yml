@@ -12,7 +12,8 @@ before_install:
   - sed -e 's/- brewcask/# - brewcask/' -e 's/- font/# - font/' localhost.yml > ci.yml
 
 install:
-  - xcode-select --install
+  - xcode-select -p
+  - xcode-select --switch /Library/Developer/CommandLineTools/
   - brew install ansible
 
 script:
