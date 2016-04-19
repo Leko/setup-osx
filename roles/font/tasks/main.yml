@@ -1,0 +1,11 @@
+- name: Install Ricty
+  homebrew: name={{ item }} state=latest
+  with_items:
+    - fontforge
+    - ricty
+
+- name: Copy ricty to fonts folder
+  shell: cp -f $(brew --cellar ricty)/*/share/fonts/Ricty*.ttf ~/Library/Fonts/
+  args:
+    creates: ~/Library/Fonts/Ricty-Bold.ttf
+  notify: run fc-cache

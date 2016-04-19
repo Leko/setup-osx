@@ -1,0 +1,52 @@
+homebrew_taps:
+  - homebrew/binary
+  - homebrew/versions
+  - homebrew/dupes
+  - caskroom/cask
+  - caskroom/versions
+  - caskroom/fonts
+  - sanemat/font
+homebrew_packages:
+  - { name: readline }
+  - { name: openssl }
+  - { name: openssl, state: linked, install_options: force }
+  - { name: bash }
+  - { name: git }
+  - { name: cowsay }
+  - { name: docker }
+  - { name: docker-machine }
+  - { name: doxygen }
+  - { name: apple-gcc42 }
+  - { name: gnu-sed }
+  - { name: graphviz }
+  - { name: jq }
+  - { name: mecab }
+  - { name: mecab-ipadic }
+  - { name: nkf }
+  - { name: nmap }
+  - { name: packer }
+  - { name: sqlite }
+  - { name: tree }
+  - { name: unrar }
+  - { name: vim }
+  - { name: wget }
+  - { name: coreutils }
+  - { name: bash-completion }
+  - { name: httpie }
+  - { name: argon/mas/mas }
+  # For Brew cask
+  - { name: brew-cask, state: absent, install_options: force }
+  # For PHP
+  - { name: bison27 }
+  - { name: bison27, state: linked, install_options: force }
+  - { name: pcre }
+  - { name: zlib }
+  - { name: re2c }
+  - { name: libjpeg }
+  - { name: libpng }
+  - { name: libmcrypt }
+  - { name: autoconf }
+  - { name: automake }
+  # You have unlinked kegs in your Cellar...
+  - { name: ppl011 }
+  - { name: ppl011, state: linked }

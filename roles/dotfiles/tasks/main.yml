@@ -1,0 +1,11 @@
+- name: Create .bundle
+  file: path=~/.bundle state=directory
+
+# TODO: stat + register -> !result.islnk
+- name: Remove exists file
+  file: dest={{ item.dest }} state=absent
+  with_items: '{{ symlinks }}'
+
+- name: Link dot files
+  file: src={{ playbook_dir }}/roles/dotfiles/{{ item.path }} dest={{ item.dest }} state=link
+  with_items: '{{ symlinks }}'

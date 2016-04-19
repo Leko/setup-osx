@@ -1,0 +1,5 @@
+---
+dependencies:
+  - { role: anyenv }
+  - { role: dotfiles }
+  - { role: homebrew }

@@ -1,0 +1,28 @@
+- name: Get os version
+  shell: 'sw_vers | grep "10.[0-9]\{2\}"'
+  register: newer_yosemite
+  ignore_errors: true
+
+- name: Homebrew taps
+  homebrew_tap: tap={{ item }} state=present
+  with_items: '{{ homebrew_taps }}'
+
+- name: Update Homebrew
+  homebrew: update_homebrew=yes
+
+- name: Install Homebrew packages
+  homebrew: >
+    name={{ item.name }}
+    state={{ item.state | default('latest') }}
+    install_options={{
+      item.install_options | default() | join(',')
+      if item.install_options is not string
+      else item.install_options
+    }}
+  with_items: '{{ homebrew_packages }}'
+  # argon/mas/mas and ppl011 support Yosemite+ only
+  when: '{{ ( item.name != "argon/mas/mas" and item.name != "ppl011") or newer_yosemite.rc == 0 }}'
+  notify: brew cleanup
+
+- name: XXX_DEBUG_XXX
+  shell: bison -V

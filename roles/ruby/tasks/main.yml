@@ -1,0 +1,12 @@
+- name: Install ruby versions
+  shell: source ~/.bashrc && rbenv install {{ item.version }}
+  with_items: '{{ ruby_versions }}'
+
+- name: Set ruby version to {{ item.version }}
+  shell: source ~/.bashrc && rbenv global {{ item.version }}
+  with_items: '{{ ruby_versions }}'
+  when: '{{ item.global | default(False) }}'
+
+- name: Install gem packages
+  gem: name={{ item }} state=latest
+  with_items: '{{ gem_packages }}'

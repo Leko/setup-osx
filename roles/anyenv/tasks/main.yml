@@ -1,0 +1,11 @@
+- name: Install anyenv
+  git:
+    repo: https://github.com/riywo/anyenv 
+    dest: ~/.anyenv
+
+- name: Enable anyenv
+  file: path=~/.anyenv/envs state=directory
+
+- name: Install anyenv languages
+  shell: source ~/.bashrc && ~/.anyenv/bin/anyenv install {{ item }} && exec $SHELL -l creates=~/.anyenv/envs/{{ item }}
+  with_items: '{{ anyenv_languages }}'

@@ -1,0 +1,6 @@
+- name: brew doctor
+  command: brew doctor
+- name: brew cask doctor
+  command: brew cask doctor
+- name: brew cask cleanup
+  command: brew cask cleanup

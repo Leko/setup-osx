@@ -1,16 +1,23 @@
+language: generic
 os: osx
+osx_image: xcode7.3 # El Capitan
+
+matrix:
+  include:
+    - osx_image: xcode7.1      # Yosemite
+    # - osx_image: beta-xcode6.2 # Mavericks
 
 before_install:
   - brew update
+  - sed -e 's/- brewcask/# - brewcask/' -e 's/- font/# - font/' localhost.yml > ci.yml
 
 install:
-  - brew install python
+  - xcode-select -p
+  - sudo xcode-select --switch /Library/Developer/CommandLineTools/
   - brew install ansible
 
 script:
-  - ansible-playbook localhost.yml --check -vv -i hosts
+  - travis_wait 60 ansible-playbook ci.yml -vv -i hosts
 
 after_script:
-  - git --version
-  - brew doctor
-  - brew cask doctor
+  - cat /tmp/php-build*

@@ -1,0 +1,6 @@
+symlinks:
+  - { path: files/.bashrc, dest: ~/.bashrc }
+  - { path: files/.gemrc, dest: ~/.gemrc }
+  - { path: files/.gitconfig, dest: ~/.gitconfig }
+  - { path: files/.gitattributes, dest: ~/.gitattributes }
+  - { path: files/.bundle, dest: ~/.bundle/config }

@@ -1,0 +1,11 @@
+- name: Override OSX default settings
+  osx_defaults: >
+    key={{ item.key }}
+    type={{ item.type }}
+    value={{ item.value }}
+    domain={{ item.domain }}
+  with_items: '{{ osx_defaults_settings }}'
+  notify: killall
+
+- name: Show library directory
+  command: chflags nohidden ~/Library

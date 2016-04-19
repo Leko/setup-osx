@@ -1,0 +1,66 @@
+osx_defaults_settings:
+  # 保存ダイアログを詳細表示で開く
+  - domain: NSGlobalDomain
+    key: NSNavPanelExpandedStateForSaveMode
+    type: bool
+    value: true
+  # 印刷ダイアログを詳細表示で開く
+  - domain: NSGlobalDomain
+    key: PMPrintingExpandedStateForPrint
+    type: bool
+    value: true
+  # 最近使ったフォルダを10個まで記録(デフォルトは5個)
+  - domain: NSGlobalDomain
+    key: NSNavRecentPlacesLimit
+    type: int
+    value: 10
+  # show all files
+  - domain: com.apple.finder
+    key: AppleShowAllFiles
+    type: bool
+    value: True
+  # テキストの選択を有効化
+  - domain: com.apple.finder
+    key: QLEnableTextSelection
+    type: bool
+    value: true
+  # 他のアプリに切り替えたらQuickLookを終了
+  - domain: com.apple.finder
+    key: QLHidePanelOnDeactivate
+    type: bool
+    value: true
+  # ネットワークボリュームに.DS_Storeを作らない
+  - domain: com.apple.desktopservices
+    key: DSDontWriteNetworkStores
+    type: bool
+    value: true
+  # ファイルを開く際の警告ダイアログを無効にする
+  - domain: com.apple.LaunchServices
+    key: LSQuarantine
+    type: bool
+    value: false
+  # Dockが表示されるまでの遅延を無くす
+  - domain: com.apple.dock
+    key: autohide-delay
+    type: float
+    value: 0
+  # Dockが隠れるアニメーションの速度を0.5秒に
+  - domain: com.apple.dock
+    key: autohide-time-modifier
+    type: float
+    value: 0.5
+  # Dockのサイズを50px?に
+  - domain: com.apple.dock
+    key: tilesize
+    type: float
+    value: 50.0
+  # 起動中のアプリのみDockに表示
+  - domain: com.apple.dock
+    key: static-only
+    type: boolean
+    value: true
+  # Dashboardを無効にする
+  - domain: com.apple.dashboard
+    key: mcx-disabled
+    type: bool
+    value: true

@@ -1,0 +1,5 @@
+go_versions:
+  - { version: 1.6, global: true }
+go_packages:
+  - github.com/motemen/ghq
+  - github.com/peco/peco/cmd/peco
