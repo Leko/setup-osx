@@ -11,6 +11,7 @@ Set up my OSX for development
 ```sh
 # Install XCode Command Line Tool 
 xcode-select --install
+sudo xcode-select --switch /Library/Developer/CommandLineTools/
 
 # Install Homebrew
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
