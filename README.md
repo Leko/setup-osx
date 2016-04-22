@@ -4,7 +4,6 @@ Set up my OSX for development
 [![Build Status](https://travis-ci.org/Leko/setup-osx.svg?branch=master)](https://travis-ci.org/Leko/setup-osx)
 
 ## Tested os versions
-- `10.9` (Mavericks)
 - `10.10` (Yosemite)
 - `10.11` (El Capitan)
 
@@ -12,12 +11,12 @@ Set up my OSX for development
 ```sh
 # Install XCode Command Line Tool 
 xcode-select --install
+sudo xcode-select --switch /Library/Developer/CommandLineTools/
 
 # Install Homebrew
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew install ansible
 brew doctor
-brew update
 
 # Clone 
 cd ~
