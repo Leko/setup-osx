@@ -17,7 +17,6 @@ sudo xcode-select --switch /Library/Developer/CommandLineTools/
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew install ansible
 brew doctor
-brew update
 
 # Clone 
 cd ~
