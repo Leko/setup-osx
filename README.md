@@ -4,7 +4,6 @@ Set up my OSX for development
 [![Build Status](https://travis-ci.org/Leko/setup-osx.svg?branch=master)](https://travis-ci.org/Leko/setup-osx)
 
 ## Tested os versions
-- `10.9` (Mavericks)
 - `10.10` (Yosemite)
 - `10.11` (El Capitan)
 
