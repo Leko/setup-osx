@@ -1,6 +1,11 @@
+- name: Check installed go versions
+  shell: source ~/.bashrc && goenv versions
+  register: installed_versions
+
 - name: Install go versions
   shell: source ~/.bashrc && goenv install {{ item.version }}
   with_items: '{{ go_versions }}'
+  when: installed_versions.stdout.find({{ item.version }}) != -1
 
 - name: Set go version to {{ item.version }}
   shell: source ~/.bashrc && goenv global {{ item.version }}

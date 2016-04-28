@@ -1,6 +1,11 @@
+- name: Check installed node versions
+  shell: source ~/.bashrc && ndenv versions
+  register: installed_versions
+
 - name: Install node versions
   shell: source ~/.bashrc && ndenv install {{ item.version }}
   with_items: '{{ node_versions }}'
+  when: installed_versions.stdout.find({{ item.version }}) != -1
 
 - name: Set node version to {{ item.version }}
   shell: source ~/.bashrc && ndenv global {{ item.version }}
