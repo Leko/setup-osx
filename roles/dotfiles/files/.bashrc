@@ -96,6 +96,3 @@ export PATH=$PATH:$GOPATH/bin
 # Programming > PHP
 #########################
 export PATH=$HOME/.composer/vendor/bin:$PATH
-
-# Display software updates
-softwareupdate -l
