@@ -22,7 +22,7 @@ brew doctor
 cd ~
 git clone https://github.com/Leko/setup-osx.git setup-osx
 cd setup-osx
-echo 'ansible_sudo_pass: {{YOUR_USER_PASSWORD}}' > group_vars/all
+echo 'YOUR_USER_PASSWORD' > secret
 ansible-playbook localhost.yml -vv -i hosts
 
 # Update 
