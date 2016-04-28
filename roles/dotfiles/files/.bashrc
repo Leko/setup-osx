@@ -51,6 +51,12 @@ export HOMEBREW_CASK_OPTS=--appdir=$HOMEBREW_CASK_APP_DIR
 export HOMEBREW_MAKE_JOBS=4
 
 #########################
+# Development > Git
+#########################
+export PATH="$(brew --prefix git)/share/git-core/contrib/diff-highlight:$PATH"
+/usr/local/share/git-core/contrib/diff-highlight/
+
+#########################
 # Development > Editor
 #########################
 # brew-cask経由で入れないとアプリ名が変わるので変わるのでエラーが出る、その場合パスを直す
