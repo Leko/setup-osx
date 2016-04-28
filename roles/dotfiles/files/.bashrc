@@ -14,6 +14,7 @@
 #   \n: 改行
 #   \S: rootなら#、その他なら$を表示する
 #########################
+source /usr/local/etc/bash_completion
 export GIT_PS1_SHOWSTASHSTATE=1
 export GIT_PS1_STATESEPARATOR='|'
 export PS1="\n[&:\j] \u: \[\e[00;34m\]\w\[\e[0m\]\[\e[00;35m\]\$(__git_ps1)\[\e[0m\]\n( ˘ω˘).oO( "
@@ -50,6 +51,11 @@ export HOMEBREW_CASK_OPTS=--appdir=$HOMEBREW_CASK_APP_DIR
 export HOMEBREW_MAKE_JOBS=4
 
 #########################
+# Development > Git
+#########################
+export PATH="$(brew --prefix git)/share/git-core/contrib/diff-highlight:$PATH"
+
+#########################
 # Development > Editor
 #########################
 # brew-cask経由で入れないとアプリ名が変わるので変わるのでエラーが出る、その場合パスを直す
@@ -67,22 +73,20 @@ eval "$(anyenv init -)"
 export LS_COLORS="no=00:fi=00:di=32:ln=36"
 
 # Require Bash 4.0+
-peco_src() {
+peco_ghq() {
     local selected
-    selected="$(ghq list --full-path | peco --query="$READLINE_LINE")"
+    selected="$(ghq list -p | peco --null)"
     if [ -n "$selected" ]; then
-        READLINE_LINE="cd $selected"
-        READLINE_POINT=${#READLINE_LINE}
+        cd $selected
     fi
 }
 # http://qiita.com/comutt/items/f54e755f22508a6c7d78
 peco_select_history() {
-    declare l=$(HISTTIMEFORMAT= history | sort -k1,1nr | perl -ne 'BEGIN { my @lines = (); } s/^\s*\d+\s*//; $in=$_; if (!(grep {$in eq $_} @lines)) { push(@lines, $in); print $in; }' | peco --query "$READLINE_LINE")
-    READLINE_LINE="$l"
-    READLINE_POINT=${#l}
+    local l=$(HISTTIMEFORMAT= history | cut -d" " -f4- | tac | sed -e 's/^\s*[0-9]*    \+\s\+//' | peco --query "$READLINE_LINE")
+    $l
 }
 
-bind -x '"\C-]": peco_src'
+bind -x '"\C-]": peco_ghq'
 bind -x '"\C-r": peco_select_history'
 
 #########################
@@ -95,6 +99,3 @@ export PATH=$PATH:$GOPATH/bin
 # Programming > PHP
 #########################
 export PATH=$HOME/.composer/vendor/bin:$PATH
-
-# Display software updates
-softwareupdate -l

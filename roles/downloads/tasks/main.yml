@@ -1,5 +1,8 @@
+- name: Create alfred directory
+  file: path=~/Downloads/alfred state=directory
+
 - name: Download Alfred workflows
-  get_url: url={{ item }} dest=~/Downloads/alfred
+  get_url: url={{ item }} dest=~/Downloads/alfred/
   with_items: '{{ alfred_workflows }}'
 
 - name: Download files

@@ -1,9 +1,14 @@
+- name: Check installed ruby versions
+  shell: eval "$(~/.anyenv/bin/anyenv init -)" && rbenv versions
+  register: installed_versions
+
 - name: Install ruby versions
-  shell: source ~/.bashrc && rbenv install {{ item.version }}
+  shell: eval "$(~/.anyenv/bin/anyenv init -)" && rbenv install {{ item.version }}
   with_items: '{{ ruby_versions }}'
+  when: "installed_versions.stdout.find('{{ item.version }}') == -1"
 
 - name: Set ruby version to {{ item.version }}
-  shell: source ~/.bashrc && rbenv global {{ item.version }}
+  shell: eval "$(~/.anyenv/bin/anyenv init -)" && rbenv global {{ item.version }}
   with_items: '{{ ruby_versions }}'
   when: '{{ item.global | default(False) }}'
 
