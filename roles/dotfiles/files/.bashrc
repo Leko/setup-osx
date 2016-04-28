@@ -74,22 +74,20 @@ eval "$(anyenv init -)"
 export LS_COLORS="no=00:fi=00:di=32:ln=36"
 
 # Require Bash 4.0+
-peco_src() {
+peco_ghq() {
     local selected
-    selected="$(ghq list --full-path | peco --query="$READLINE_LINE")"
+    selected="$(ghq list -p | peco --null)"
     if [ -n "$selected" ]; then
-        READLINE_LINE="cd $selected"
-        READLINE_POINT=${#READLINE_LINE}
+        cd $selected
     fi
 }
 # http://qiita.com/comutt/items/f54e755f22508a6c7d78
 peco_select_history() {
-    declare l=$(HISTTIMEFORMAT= history | sort -k1,1nr | perl -ne 'BEGIN { my @lines = (); } s/^\s*\d+\s*//; $in=$_; if (!(grep {$in eq $_} @lines)) { push(@lines, $in); print $in; }' | peco --query "$READLINE_LINE")
-    READLINE_LINE="$l"
-    READLINE_POINT=${#l}
+    local l=$(HISTTIMEFORMAT= history | cut -d" " -f4- | tac | sed -e 's/^\s*[0-9]*    \+\s\+//' | peco --query "$READLINE_LINE")
+    $l
 }
 
-bind -x '"\C-]": peco_src'
+bind -x '"\C-]": peco_ghq'
 bind -x '"\C-r": peco_select_history'
 
 #########################
