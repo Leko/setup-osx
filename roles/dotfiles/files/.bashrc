@@ -54,7 +54,6 @@ export HOMEBREW_MAKE_JOBS=4
 # Development > Git
 #########################
 export PATH="$(brew --prefix git)/share/git-core/contrib/diff-highlight:$PATH"
-/usr/local/share/git-core/contrib/diff-highlight/
 
 #########################
 # Development > Editor
