@@ -23,6 +23,3 @@
   # argon/mas/mas and ppl011 support Yosemite+ only
   when: '{{ ( item.name != "argon/mas/mas" and item.name != "ppl011") or newer_yosemite.rc == 0 }}'
   notify: brew cleanup
-
-- name: XXX_DEBUG_XXX
-  shell: bison -V
