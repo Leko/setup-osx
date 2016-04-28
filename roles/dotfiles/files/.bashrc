@@ -14,6 +14,7 @@
 #   \n: 改行
 #   \S: rootなら#、その他なら$を表示する
 #########################
+source /usr/local/etc/bash_completion
 export GIT_PS1_SHOWSTASHSTATE=1
 export GIT_PS1_STATESEPARATOR='|'
 export PS1="\n[&:\j] \u: \[\e[00;34m\]\w\[\e[0m\]\[\e[00;35m\]\$(__git_ps1)\[\e[0m\]\n( ˘ω˘).oO( "
