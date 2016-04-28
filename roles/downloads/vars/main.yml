@@ -12,3 +12,5 @@ alfred_workflows:
 downloads:
   - url: 'http://ethanschoonover.com/solarized/files/solarized.zip'
     dest: ~/Downloads
+  - url: 'https://github.com/leothelocust/sequelpro-solarized-colorscheme/archive/master.zip'
+    dest: ~/Downloads
