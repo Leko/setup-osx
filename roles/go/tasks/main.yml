@@ -1,17 +1,17 @@
 - name: Check installed go versions
-  shell: source ~/.bashrc && goenv versions
+  shell: eval "$(~/.anyenv/bin/anyenv init -)" && goenv versions
   register: installed_versions
 
 - name: Install go versions
-  shell: source ~/.bashrc && goenv install {{ item.version }}
+  shell: eval "$(~/.anyenv/bin/anyenv init -)" && goenv install {{ item.version }}
   with_items: '{{ go_versions }}'
-  when: installed_versions.stdout.find({{ item.version }}) != -1
+  when: "installed_versions.stdout.find('{{ item.version }}') == -1"
 
 - name: Set go version to {{ item.version }}
-  shell: source ~/.bashrc && goenv global {{ item.version }}
+  shell: eval "$(~/.anyenv/bin/anyenv init -)" && goenv global {{ item.version }}
   with_items: '{{ go_versions }}'
   when: '{{ item.global | default(False) }}'
 
 - name: Install go packages
-  shell: source ~/.bashrc && go get {{ item }}
+  shell: eval "$(~/.anyenv/bin/anyenv init -)" && GOPATH=~/go go get {{ item }}
   with_items: '{{ go_packages }}'

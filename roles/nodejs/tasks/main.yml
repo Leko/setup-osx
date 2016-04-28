@@ -1,14 +1,14 @@
 - name: Check installed node versions
-  shell: source ~/.bashrc && ndenv versions
+  shell: eval "$(~/.anyenv/bin/anyenv init -)" && ndenv versions
   register: installed_versions
 
 - name: Install node versions
-  shell: source ~/.bashrc && ndenv install {{ item.version }}
+  shell: eval "$(~/.anyenv/bin/anyenv init -)" && ndenv install {{ item.version }}
   with_items: '{{ node_versions }}'
-  when: installed_versions.stdout.find({{ item.version }}) != -1
+  when: "installed_versions.stdout.find('{{ item.version }}') == -1"
 
 - name: Set node version to {{ item.version }}
-  shell: source ~/.bashrc && ndenv global {{ item.version }}
+  shell: eval "$(~/.anyenv/bin/anyenv init -)" && ndenv global {{ item.version }}
   with_items: '{{ node_versions }}'
   when: '{{ item.global | default(False) }}'
 
@@ -16,6 +16,7 @@
   npm: >
     name={{ item.name }}
     production=yes
+    executable=~/.anyenv/envs/ndenv/shims/npm
     global={{ item.global | default(False) }}
     state={{ item.state | default('latest') }}
   with_items: '{{ npm_packages }}'
