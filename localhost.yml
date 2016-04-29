@@ -9,6 +9,7 @@
     - homebrew
     - brewcask
     - font
+    - docker
     - anyenv
     - php
     - go
