@@ -1,0 +1,21 @@
+- name: Check docker-machine created
+  shell: docker-machine ls | grep default
+  register: docker_machine_created
+  ignore_errors: true
+
+- name: Create default docker-machine
+  shell: docker-machine create default
+  when: "docker_machine_created.rc != 0"
+
+- name: List docker images
+  shell: "source ~/.bashrc && docker images"
+  args:
+    executable: /bin/bash
+  register: docker_images
+
+- name: Pull docker containers
+  shell: "source ~/.bashrc && docker pull {{ item.name }}:{{ item.tag | default('latest') }}"
+  args:
+    executable: /bin/bash
+  with_items: '{{ docker_containers }}'
+  when: "docker_images.stdout.find('{{ item.name }}') == -1 and docker_images.stdout.find('{{ item.tag | default('latest') }}') == -1"

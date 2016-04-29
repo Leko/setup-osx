@@ -51,6 +51,14 @@ export HOMEBREW_CASK_OPTS=--appdir=$HOMEBREW_CASK_APP_DIR
 export HOMEBREW_MAKE_JOBS=4
 
 #########################
+# Development > Docker
+#########################
+if ! docker-machine status | grep Running > /dev/null; then
+    docker-machine start default
+fi
+eval "$(docker-machine env default)"
+
+#########################
 # Development > Git
 #########################
 export PATH="$(brew --prefix git)/share/git-core/contrib/diff-highlight:$PATH"
