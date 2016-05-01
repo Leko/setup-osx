@@ -1,11 +1,11 @@
 language: generic
 os: osx
-osx_image: xcode7.3 # El Capitan
+osx_image: xcode7.1 # Yosemite
 
-matrix:
-  include:
-    - osx_image: xcode7.1      # Yosemite
-    # - osx_image: beta-xcode6.2 # Mavericks
+# matrix:
+#   include:
+#     - osx_image: beta-xcode6.2 # Mavericks
+#     - osx_image: xcode7.3      # El Capitan
 
 before_install:
   - brew update
