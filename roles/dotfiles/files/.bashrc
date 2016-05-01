@@ -46,7 +46,6 @@ export HISTTIMEFORMAT='%Y%m%d %T'
 #########################
 HOMEBREW_CASK_APP_DIR=/Applications
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
-export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 export HOMEBREW_CASK_OPTS=--appdir=$HOMEBREW_CASK_APP_DIR
 export HOMEBREW_MAKE_JOBS=4
 
