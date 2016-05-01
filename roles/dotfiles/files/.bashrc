@@ -48,6 +48,7 @@ HOMEBREW_CASK_APP_DIR=/Applications
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 export HOMEBREW_CASK_OPTS=--appdir=$HOMEBREW_CASK_APP_DIR
 export HOMEBREW_MAKE_JOBS=4
+alias brew="env PATH=$PATH \brew"
 
 #########################
 # Development > Docker
