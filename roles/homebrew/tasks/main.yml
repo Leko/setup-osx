@@ -23,4 +23,9 @@
   with_items: '{{ homebrew_packages }}'
   # argon/mas/mas and ppl011 support Yosemite+ only
   when: '{{ ( item.name != "argon/mas/mas" and item.name != "ppl011") or newer_yosemite.rc == 0 }}'
-  notify: brew cleanup
+  notify: brew doctor
+
+- name: Clean up Homebrew packages
+  shell: brew cleanup
+  register: brew_cleanup_result
+  changed_when: "brew_cleanup_result.stdout != ''"
