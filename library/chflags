@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+#
+# state=hidden|nohidden
+# src=directory
+
+eval $(perl -lne 'while(/\s?([^=\s]+)\s?=\s?(\"(?:\\\"|[^\"])+\"|\x27(?:\x27\\\x27\x27|[^\x27])+\x27|\S+)\s?/g){print "$1=$2"}' $1)
+
+src=$(echo $src | tr -d "'" | sed "s#~#$HOME#")
+cmd="chflags $state $src"
+
+case "$state" in
+  hidden   ) expected='@' ;;
+  nohidden ) expected='+' ;;
+  *        ) echo "rc=1 failed=true message='Unknown state $state'" && exit 1 ;;
+esac
+
+changed=false
+if ls -l $(dirname $src) | grep $src | grep $expected > /dev/null; then
+  $cmd
+  changed=true
+fi
+
+echo "{\"rc\": 0, \"cmd\": \"$cmd\", \"changed\": $changed}"
