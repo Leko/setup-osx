@@ -2,6 +2,7 @@
   shell: 'sw_vers | grep "10.[0-9]\{2\}"'
   register: newer_yosemite
   ignore_errors: true
+  changed_when: false
 
 - name: Homebrew taps
   homebrew_tap: tap={{ item }} state=present
