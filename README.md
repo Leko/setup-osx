@@ -5,7 +5,6 @@ Set up my OSX for development
 
 ## Tested os versions
 - `10.10` (Yosemite)
-- `10.11` (El Capitan)
 
 ## Getting started
 ```sh
