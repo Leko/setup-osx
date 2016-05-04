@@ -1,6 +1,6 @@
 - hosts: localhost
   connection: local
-  gather_facts: no           
+  gather_facts: no
   become: no
   roles:
     - osx
