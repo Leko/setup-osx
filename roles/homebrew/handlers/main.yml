@@ -1,4 +1,4 @@
 - name: brew doctor
-  command: brew doctor
-- name: brew cleanup
-  shell: brew cleanup
+  command: env PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin \brew doctor
+  register: brew_doctor_result
+  changed_when: brew_doctor_result.stdout != 'Your system is ready to brew.'

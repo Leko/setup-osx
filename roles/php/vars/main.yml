@@ -1,3 +1,7 @@
 php_versions:
   - { version: 5.6.20, global: true }
   - { version: 7.0.5 }
+link_packages:
+  - { name: openssl, state: linked, install_options: force }
+  - { name: bison27, state: linked, install_options: force }
+  - { name: readline, state: linked, install_options: force }

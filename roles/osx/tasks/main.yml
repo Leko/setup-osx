@@ -8,4 +8,4 @@
   notify: killall
 
 - name: Show library directory
-  command: chflags nohidden ~/Library
+  chflags: state=nohidden src=~/Library

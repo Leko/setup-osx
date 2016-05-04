@@ -46,9 +46,9 @@ export HISTTIMEFORMAT='%Y%m%d %T'
 #########################
 HOMEBREW_CASK_APP_DIR=/Applications
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
-export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 export HOMEBREW_CASK_OPTS=--appdir=$HOMEBREW_CASK_APP_DIR
 export HOMEBREW_MAKE_JOBS=4
+alias brew="env PATH=$PATH \brew"
 
 #########################
 # Development > Docker
@@ -62,12 +62,6 @@ eval "$(docker-machine env default)"
 # Development > Git
 #########################
 export PATH="$(brew --prefix git)/share/git-core/contrib/diff-highlight:$PATH"
-
-#########################
-# Development > Editor
-#########################
-# brew-cask経由で入れないとアプリ名が変わるので変わるのでエラーが出る、その場合パスを直す
-alias subl="$HOMEBREW_CASK_APP_DIR/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 
 #########################
 # Programming > Any env

@@ -5,9 +5,19 @@
     force=yes
     mode=0644
 
+- name: Link Homebrew packages
+  homebrew: 'name={{ item.name }} state=linked'
+  with_items: '{{ link_packages }}'
+
 - name: Check installed php versions
   shell: eval "$(~/.anyenv/bin/anyenv init -)" && phpenv versions
   register: installed_versions
+  changed_when: false
+
+- name: Check current php version
+  shell: eval "$(~/.anyenv/bin/anyenv init -)" && phpenv versions | grep '*' && awk '{print $2}'
+  register: current_version
+  changed_when: false
 
 - name: Install php versions
   shell: eval "$(~/.anyenv/bin/anyenv init -)" && phpenv install {{ item.version }}
@@ -17,4 +27,8 @@
 - name: Set php version to {{ item.version }}
   shell: eval "$(~/.anyenv/bin/anyenv init -)" && phpenv global {{ item.version }}
   with_items: '{{ php_versions }}'
-  when: '{{ item.global | default(False) }}'
+  when: '(current_version.rc != 0) or ({{ item.global | default(False) }} and "{{ item.version }}" == current_version)'
+
+- name: Unlink Homebrew packages
+  homebrew: 'name={{ item.name }} state=unlinked'
+  with_items: '{{ link_packages }}'
