@@ -4,7 +4,6 @@ homebrew_cask_packages:
   - { name: flash-player }
   - { name: quicklook-csv }
   - { name: quicklook-json }
-  - { name: heroku-toolbelt }
   - { name: adobe-creative-cloud }
   - { name: appcleaner }
   - { name: cyberduck }
