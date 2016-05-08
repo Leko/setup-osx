@@ -11,3 +11,4 @@ npm_packages:
   - { name: release-changelog, global: true }
   - { name: yeoman, global: true }
   - { name: adonis-cli, global: true }
+  - { name: standard-format, global: true }
