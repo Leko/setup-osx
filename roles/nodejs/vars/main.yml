@@ -1,7 +1,8 @@
 node_versions:
   - { version: v0.12.13 }
-  - { version: v4.4.3, global: true }
-  - { version: v5.10.1 }
+  - { version: v4.4.3 }
+  - { version: v5.11.1 }
+  - { version: v6.1.0, global: true }
 npm_packages:
   - { name: babel-cli, global: true }
   - { name: bower, global: true }
@@ -9,3 +10,4 @@ npm_packages:
   - { name: faker-cli, global: true }
   - { name: release-changelog, global: true }
   - { name: yeoman, global: true }
+  - { name: adonis-cli, global: true }
