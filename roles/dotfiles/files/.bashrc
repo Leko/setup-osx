@@ -64,6 +64,11 @@ eval "$(docker-machine env default)"
 export PATH="$(brew --prefix git)/share/git-core/contrib/diff-highlight:$PATH"
 
 #########################
+# Development > Grep
+#########################
+export GREP_OPTIONS='--color=auto'
+
+#########################
 # Programming > Any env
 #########################
 export PATH="$HOME/.anyenv/bin:$PATH"
