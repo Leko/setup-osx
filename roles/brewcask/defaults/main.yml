@@ -15,7 +15,7 @@ homebrew_cask_packages:
   - { name: karabiner }
   - { name: mysqlworkbench }
   - { name: sequel-pro }
-  - { name: sublime-text3 }
+  - { name: sublime-text }
   - { name: vagrant }
   - { name: virtualbox }
   - { name: xmind }
