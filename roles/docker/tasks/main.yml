@@ -4,7 +4,7 @@
   ignore_errors: true
 
 - name: Create default docker-machine
-  shell: docker-machine create default
+  shell: docker-machine create default --virtualbox-disk-size 20000 -d virtualbox
   when: "docker_machine_created.rc != 0"
 
 - name: List docker images
