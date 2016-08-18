@@ -12,9 +12,6 @@ homebrew_packages:
   - { name: bash }
   - { name: git }
   - { name: cowsay }
-  - { name: docker }
-  - { name: docker-machine }
-  - { name: docker-compose }
   - { name: doxygen }
   - { name: apple-gcc42 }
   - { name: gnu-sed }
