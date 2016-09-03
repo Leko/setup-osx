@@ -12,9 +12,6 @@ homebrew_packages:
   - { name: bash }
   - { name: git }
   - { name: cowsay }
-  - { name: docker }
-  - { name: docker-machine }
-  - { name: docker-compose }
   - { name: doxygen }
   - { name: apple-gcc42 }
   - { name: gnu-sed }
@@ -33,6 +30,7 @@ homebrew_packages:
   - { name: coreutils }
   - { name: bash-completion }
   - { name: httpie }
+  - { name: phantomjs }
   - { name: argon/mas/mas }
   # For Brew cask
   - { name: brew-cask, state: absent, install_options: force }

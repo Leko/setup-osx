@@ -18,6 +18,7 @@ homebrew_cask_packages:
   - { name: sublime-text }
   - { name: vagrant }
   - { name: virtualbox }
+  - { name: docker }
   - { name: xmind }
   - { name: spectacle }
   - { name: skype }
