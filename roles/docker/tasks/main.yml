@@ -1,12 +1,3 @@
-- name: Check docker-machine created
-  shell: docker-machine ls | grep default
-  register: docker_machine_created
-  ignore_errors: true
-
-- name: Create default docker-machine
-  shell: docker-machine create default --virtualbox-disk-size 20000 -d virtualbox
-  when: "docker_machine_created.rc != 0"
-
 - name: List docker images
   shell: "source ~/.bashrc && docker images"
   args:

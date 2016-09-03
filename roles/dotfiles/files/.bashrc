@@ -51,14 +51,6 @@ export HOMEBREW_MAKE_JOBS=4
 alias brew="env PATH=$PATH \brew"
 
 #########################
-# Development > Docker
-#########################
-if ! docker-machine status | grep Running > /dev/null; then
-    docker-machine start default
-fi
-eval "$(docker-machine env default)"
-
-#########################
 # Development > Git
 #########################
 export PATH="$(brew --prefix git)/share/git-core/contrib/diff-highlight:$PATH"
