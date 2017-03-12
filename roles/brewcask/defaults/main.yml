@@ -1,9 +1,18 @@
 homebrew_cask_packages:
+  - { name: qlcolorcode }
+  - { name: qlstephen }
+  - { name: qlmarkdown }
+  - { name: betterzipql }
+  - { name: qlimagesize }
+  - { name: webpquicklook }
+  - { name: qlvideo }
+  - { name: quicklook-pat }
+  - { name: qlprettypatch }
+  - { name: quicklook-csv }
+  - { name: quicklook-json }
   - { name: alfred }
   - { name: dash }
   - { name: flash-player }
-  - { name: quicklook-csv }
-  - { name: quicklook-json }
   - { name: adobe-creative-cloud }
   - { name: appcleaner }
   - { name: cyberduck }
