@@ -1,10 +1,19 @@
 homebrew_cask_packages:
+  - { name: qlcolorcode }
+  - { name: qlstephen }
+  - { name: qlmarkdown }
+  - { name: betterzipql }
+  - { name: qlimagesize }
+  - { name: webpquicklook }
+  - { name: qlvideo }
+  - { name: quicklook-pat }
+  - { name: qlprettypatch }
+  - { name: quicklook-csv }
+  - { name: quicklook-json }
   - { name: alfred }
   - { name: dash }
   - { name: docker }
   - { name: flash-player }
-  - { name: quicklook-csv }
-  - { name: quicklook-json }
   - { name: adobe-creative-cloud }
   - { name: appcleaner }
   - { name: cyberduck }
@@ -16,9 +25,10 @@ homebrew_cask_packages:
   - { name: karabiner }
   - { name: mysqlworkbench }
   - { name: sequel-pro }
-  - { name: sublime-text3 }
+  - { name: sublime-text }
   - { name: vagrant }
   - { name: virtualbox }
+  - { name: docker }
   - { name: xmind }
   - { name: spectacle }
   - { name: skype }
