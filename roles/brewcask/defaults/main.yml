@@ -33,7 +33,7 @@ homebrew_cask_packages:
   - { name: spectacle }
   - { name: skype }
   - { name: recordit }
-  - { name: coteditor }
+  # - { name: coteditor }
   - { name: visual-studio-code }
   - { name: franz }
   - { name: wordpresscom }
@@ -43,7 +43,7 @@ homebrew_cask_packages:
   - { name: font-source-han-code-jp }
   - { name: font-source-han-sans }
   - { name: font-roboto }
-  - { name: font-rounded-m-plus }
+  # - { name: font-rounded-m-plus }
   - { name: font-ionicons }
   # For Ricty
   # http://www.task-notes.com/entry/20150124/1422091466
