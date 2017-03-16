@@ -1,6 +1,7 @@
 homebrew_cask_packages:
   - { name: alfred }
   - { name: dash }
+  - { name: docker }
   - { name: flash-player }
   - { name: quicklook-csv }
   - { name: quicklook-json }
