@@ -5,8 +5,8 @@ alfred_workflows:
   - 'https://github.com/packal/repository/raw/master/tylereich.colors/colors_v2.0.1.alfredworkflow'
   - 'https://github.com/packal/repository/raw/master/mn.frd.alfred-dongers/dongers.alfredworkflow'
   - 'https://github.com/packal/repository/raw/master/dk.rodalgaard.alfred.network/network.alfredworkflow'
-  - 'https://dl.dropboxusercontent.com/u/48987130/alfred_workflows/hatebu_for_alfred.alfredworkflow'
-  - 'https://dl.dropboxusercontent.com/u/48987130/alfred_workflows/Markdown%20Link%20Generator.alfredworkflow'
+  #- 'https://dl.dropboxusercontent.com/u/48987130/alfred_workflows/hatebu_for_alfred.alfredworkflow'
+  #- 'https://dl.dropboxusercontent.com/u/48987130/alfred_workflows/Markdown%20Link%20Generator.alfredworkflow'
   - 'https://github.com/packal/repository/raw/master/net.deanishe.alfred-stackoverflow/stackoverflow-1.2.alfredworkflow'
   - 'https://github.com/packal/repository/raw/master/com.ravelll.wifi/wi-fi.alfredworkflow'
 downloads:
