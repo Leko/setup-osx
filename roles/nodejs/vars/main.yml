@@ -4,11 +4,10 @@ node_versions:
   - { version: v5.11.1 }
   - { version: v6.1.0, global: true }
 npm_packages:
-  - { name: babel-cli, global: true }
   - { name: bower, global: true }
   - { name: daff, global: true }
   - { name: faker-cli, global: true }
   - { name: release-changelog, global: true }
-  - { name: yeoman, global: true }
-  - { name: adonis-cli, global: true }
   - { name: standard-format, global: true }
+  - { name: react-native-cli, global: true }
+  - { name: firebase-tools, global: true }
