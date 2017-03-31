@@ -1,0 +1,5 @@
+apm:
+  # For React Native
+  - nuclide
+  - atom-react-native-autocomplete
+  - atom-react-native-css

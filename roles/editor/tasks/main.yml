@@ -1,0 +1,6 @@
+- name: Install packages via apm(Atom package manager)
+  shell: apm install {{ item }}
+  args:
+    executable: /bin/bash
+  register: apm_result
+  with_items: '{{ apm }}'
