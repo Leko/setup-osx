@@ -12,7 +12,6 @@ homebrew_cask_packages:
   - { name: quicklook-json }
   - { name: react-native-debugger }
   - { name: dash }
-  - { name: docker }
   - { name: flash-player }
   - { name: appcleaner }
   - { name: cyberduck }
