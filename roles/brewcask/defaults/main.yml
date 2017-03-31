@@ -11,11 +11,9 @@ homebrew_cask_packages:
   - { name: quicklook-csv }
   - { name: quicklook-json }
   - { name: react-native-debugger }
-  - { name: alfred }
   - { name: dash }
   - { name: docker }
   - { name: flash-player }
-  - { name: adobe-creative-cloud }
   - { name: appcleaner }
   - { name: cyberduck }
   - { name: evernote }
@@ -35,9 +33,6 @@ homebrew_cask_packages:
   - { name: skype }
   - { name: recordit }
   - { name: coteditor }
-  - { name: visual-studio-code }
-  - { name: franz }
-  - { name: wordpresscom }
   # Fonts
   # https://github.com/caskroom/homebrew-fonts/tree/master/Casks
   - { name: font-source-code-pro }
