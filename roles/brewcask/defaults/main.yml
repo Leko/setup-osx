@@ -36,6 +36,7 @@ homebrew_cask_packages:
   - { name: visual-studio-code }
   - { name: franz }
   - { name: wordpresscom }
+  - { name: gitscout }
   # Fonts
   # https://github.com/caskroom/homebrew-fonts/tree/master/Casks
   - { name: font-source-code-pro }
