@@ -3,3 +3,4 @@ anyenv_languages:
   - phpenv
   - goenv
   - ndenv
+  - pyenv

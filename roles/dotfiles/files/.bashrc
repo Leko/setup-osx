@@ -39,7 +39,6 @@ alias less='less -FSRXc'      # Preferred 'less' implementation
 export HISTCONTROL=ignoreboth
 export HISTIGNORE="fg*:bg*:history*:cd*:jobs*"
 export HISTSIZE=10000
-export HISTTIMEFORMAT='%Y%m%d %T'
 
 #########################
 # Development > Homebrew
@@ -67,6 +66,11 @@ export PATH="$HOME/.anyenv/bin:$PATH"
 eval "$(anyenv init -)"
 
 #########################
+# Programming > Nodejs > Yarn
+#########################
+export PATH="$PATH:`yarn global bin`"
+
+#########################
 # Programming > Bash
 #########################
 export LS_COLORS="no=00:fi=00:di=32:ln=36"
@@ -81,7 +85,7 @@ peco_ghq() {
 }
 # http://qiita.com/comutt/items/f54e755f22508a6c7d78
 peco_select_history() {
-    local l=$(HISTTIMEFORMAT= history | cut -d" " -f4- | tac | sed -e 's/^\s*[0-9]*    \+\s\+//' | peco --query "$READLINE_LINE")
+    local l=$(history | awk '{print $@}' | peco --query "$READLINE_LINE")
     $l
 }
 
@@ -98,3 +102,6 @@ export PATH=$PATH:$GOPATH/bin
 # Programming > PHP
 #########################
 export PATH=$HOME/.composer/vendor/bin:$PATH
+
+# added by travis gem
+[ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh

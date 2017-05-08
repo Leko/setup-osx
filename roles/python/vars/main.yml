@@ -1,0 +1,6 @@
+python_versions:
+  - { version: 3.5.3, global: true }
+  - { version: 3.6.1 }
+
+pip_packages:
+  - gitsome
