@@ -10,10 +10,9 @@ homebrew_cask_packages:
   - { name: qlprettypatch }
   - { name: quicklook-csv }
   - { name: quicklook-json }
-  - { name: alfred }
+  - { name: react-native-debugger }
   - { name: dash }
   - { name: flash-player }
-  - { name: adobe-creative-cloud }
   - { name: cyberduck }
   - { name: evernote }
   - { name: firefox }
@@ -42,7 +41,6 @@ homebrew_cask_packages:
   - { name: font-source-han-code-jp }
   - { name: font-source-han-sans }
   - { name: font-roboto }
-  - { name: font-rounded-m-plus }
   - { name: font-ionicons }
   # For Ricty
   # http://www.task-notes.com/entry/20150124/1422091466

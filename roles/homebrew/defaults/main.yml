@@ -12,6 +12,7 @@ homebrew_packages:
   - { name: bash }
   - { name: git }
   - { name: cowsay }
+  - { name: docker-compose }
   - { name: doxygen }
   - { name: apple-gcc42 }
   - { name: gnu-sed }
@@ -31,7 +32,11 @@ homebrew_packages:
   - { name: bash-completion }
   - { name: httpie }
   - { name: phantomjs }
+  - { name: peco }
   - { name: argon/mas/mas }
+  # For React native
+  - { name: watchman }
+  - { name: yarn }
   # For Brew cask
   - { name: brew-cask, state: absent, install_options: force }
   # For PHP
