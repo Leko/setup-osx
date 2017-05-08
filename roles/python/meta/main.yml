@@ -1,4 +1,4 @@
 ---
 dependencies:
-  # - { role: anyenv }
-  # - { role: dotfiles }
+  - { role: anyenv }
+  - { role: dotfiles }
