@@ -19,7 +19,6 @@ homebrew_cask_packages:
   - { name: google-chrome }
   - { name: google-japanese-ime }
   - { name: iterm2 }
-  - { name: karabiner }
   - { name: mysqlworkbench }
   - { name: sequel-pro }
   - { name: sublime-text }
@@ -35,6 +34,7 @@ homebrew_cask_packages:
   - { name: goofy }
   - { name: hyper }
   - { name: slack }
+  - { name: cmd-eikana }
   # Fonts
   # https://github.com/caskroom/homebrew-fonts/tree/master/Casks
   - { name: font-source-code-pro }
