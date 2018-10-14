@@ -1,5 +1,6 @@
 node_versions:
   - { version: v8.12.0, global: true }
+  - { version: v10.12.0, global: true }
 npm_packages:
   - { name: faker-cli, global: true }
   - { name: react-native-cli, global: true }
