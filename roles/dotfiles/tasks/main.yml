@@ -7,10 +7,10 @@
   register: file_stats
   ignore_errors: true
 
-- name: Remove exists file
-  file: dest={{ item.dest }} state=absent
-  with_items: '{{ file_stats.results }}'
-  when: 'item.stat is defined and not item.stat.islnk'
+#- name: Remove exists file
+#  file: dest={{ item.dest }} state=absent
+#  with_items: '{{ file_stats.results }}'
+#  when: 'item.stat is defined and not item.stat.islnk'
 
 - name: Link dot files
   file: src={{ playbook_dir }}/roles/dotfiles/{{ item.path }} dest={{ item.dest }} state=link
