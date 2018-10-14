@@ -12,8 +12,8 @@
     - font
     - docker
     - anyenv
-    - php
-    - go
-    - ruby
+    # - php
+    # - go
+    # - ruby
     - nodejs
-    - python
+    # - python
