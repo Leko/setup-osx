@@ -11,30 +11,22 @@ homebrew_cask_packages:
   - { name: quicklook-csv }
   - { name: quicklook-json }
   - { name: react-native-debugger }
-  - { name: dash }
+  - { name: kap }
+  - { name: keepingyouawake }
   - { name: flash-player }
-  - { name: cyberduck }
-  - { name: evernote }
   - { name: firefox }
   - { name: google-chrome }
   - { name: google-japanese-ime }
   - { name: iterm2 }
   - { name: karabiner }
-  - { name: mysqlworkbench }
-  - { name: sequel-pro }
   - { name: sublime-text }
-  - { name: vagrant }
-  - { name: virtualbox }
   - { name: docker }
   - { name: xmind }
-  - { name: skype }
-  - { name: recordit }
   - { name: coteditor }
   - { name: visual-studio-code }
   - { name: gitscout }
   - { name: goofy }
   - { name: hyper }
-  - { name: slack }
   # Fonts
   # https://github.com/caskroom/homebrew-fonts/tree/master/Casks
   - { name: font-source-code-pro }
