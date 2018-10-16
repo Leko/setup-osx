@@ -80,6 +80,18 @@ _npm_run_peco() {
 }
 complete -F _npm_run_peco npm yarn
 
+_npm_install_peco() {
+    local cur prev cword
+    _get_comp_words_by_ref -n : cur prev cword
+    if [[ "$cur" =~ @$ ]]; then
+    	PACKAGE=${cur%@}
+        COMPREPLY=${PACKAGE}@$(npm show $PACKAGE time --json | jq -r 'del(.created,.modified) | keys[]' | sort -r | peco --initial-filter=Fuzzy)
+    elif [ "$prev" = "install" ] || [ "$prev" = "add" ]; then
+        COMPREPLY=$(npm search --json $cur | jq -r '.[].name' | peco --initial-filter=Fuzzy --query=$cur)
+    fi
+}
+complete -F _npm_install_peco npm yarn
+
 _npx_peco() {
     local cur prev cword
     _get_comp_words_by_ref -n : cur prev cword
