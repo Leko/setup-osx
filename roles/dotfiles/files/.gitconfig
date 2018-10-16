@@ -16,6 +16,8 @@
 	gi = grep -n -i
 	mnff = merge --no-ff
 	ignore = "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi"
+	pr = "!po() { git push origin HEAD && hub compare $(git symbolic-ref --short HEAD) ;}; po"
+	com = "!gi() { CB=$(git rev-parse --abbrev-ref HEAD); BRANCH=${1:-master}; git fetch --all && git branch -D $BRANCH && git checkout $BRANCH && git bd $CB ;}; gi"
 [core]
 	attributesfile = ~/.gitattributes
 [ui]
@@ -33,3 +35,6 @@
 	lineNumber = true
 	threads = 16
 	fallbackToNoIndex = true
+[user]
+	name = Leko
+	email = leko.noor@gmail.com
