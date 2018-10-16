@@ -70,6 +70,7 @@ eval "$(anyenv init -)"
 #########################
 export PATH="$PATH:`yarn global bin`"
 eval $(npm completion)
+alias t='npm test'
 
 _npm_run_peco() {
     local cur prev cword
