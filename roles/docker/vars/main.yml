@@ -1,9 +1,0 @@
-docker_containers:
-  - { name: mysql, tag: 5.6 }
-  - { name: postgres }
-  - { name: redis }
-  - { name: rabbitmq }
-  - { name: nginx }
-  - { name: elasticsearch }
-  - { name: redmine }
-  - { name: codeclimate/codeclimate }

@@ -5,8 +5,6 @@ homebrew_packages:
   - { name: git }
   - { name: cowsay }
   - { name: docker-compose }
-  - { name: doxygen }
-  - { name: apple-gcc42 }
   - { name: gnu-sed }
   - { name: graphviz }
   - { name: jq }
@@ -14,8 +12,6 @@ homebrew_packages:
   - { name: mecab-ipadic }
   - { name: nkf }
   - { name: nmap }
-  - { name: packer }
-  - { name: sqlite }
   - { name: tree }
   - { name: unrar }
   - { name: vim }
@@ -23,7 +19,6 @@ homebrew_packages:
   - { name: coreutils }
   - { name: bash-completion }
   - { name: httpie }
-  - { name: phantomjs }
   - { name: peco }
   - { name: argon/mas/mas }
   # For React native
@@ -42,5 +37,5 @@ homebrew_packages:
   - { name: autoconf }
   - { name: automake }
   # You have unlinked kegs in your Cellar...
-  - { name: ppl011 }
-  - { name: ppl011, state: linked }
+  # - { name: ppl011 }
+  # - { name: ppl011, state: linked }

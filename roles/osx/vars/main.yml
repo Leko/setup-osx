@@ -14,11 +14,6 @@ osx_defaults_settings:
     key: NSNavRecentPlacesLimit
     type: int
     value: 10
-  # show all files
-  - domain: com.apple.finder
-    key: AppleShowAllFiles
-    type: bool
-    value: True
   # テキストの選択を有効化
   - domain: com.apple.finder
     key: QLEnableTextSelection

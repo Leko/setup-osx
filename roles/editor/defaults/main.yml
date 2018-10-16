@@ -1,9 +1,0 @@
-apm:
-  # For React Native
-  - nuclide
-  - atom-react-native-autocomplete
-  - atom-react-native-css
-  - markdown-preview-enhanced
-  - language-dot
-  - graphviz-preview
-  - plantuml-viewer

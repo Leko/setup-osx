@@ -69,6 +69,7 @@ eval "$(anyenv init -)"
 # Programming > Nodejs > Yarn
 #########################
 export PATH="$PATH:`yarn global bin`"
+eval $(npm completion)
 
 #########################
 # Programming > Bash

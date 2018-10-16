@@ -5,6 +5,6 @@
     - brew cask doctor
 
 - name: Clean up outdated Homebrew cask packages
-  shell: brew cask cleanup --outdated
+  shell: brew cleanup
   register: brew_cask_cleanup_result
   changed_when: "brew_cask_cleanup_result.stdout.find('Nothing to do') != -1"
