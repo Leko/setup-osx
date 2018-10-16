@@ -3,6 +3,7 @@ homebrew_packages:
   - { name: openssl }
   - { name: bash }
   - { name: git }
+  - { name: hub }
   - { name: cowsay }
   - { name: docker-compose }
   - { name: gnu-sed }
