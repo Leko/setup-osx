@@ -27,6 +27,9 @@ homebrew_cask_packages:
   - { name: gitscout }
   - { name: goofy }
   - { name: hyper }
+  # Android
+  - { name: android-sdk }
+  - { name: android-studio }
   # Fonts
   # https://github.com/caskroom/homebrew-fonts/tree/master/Casks
   - { name: font-source-code-pro }
